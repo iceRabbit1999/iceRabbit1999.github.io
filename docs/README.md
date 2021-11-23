@@ -1,3 +1,5 @@
-# Headline
+# Clarity
 
-> An awesome project.
+>IceRabbit
+
+A simple blog,code repository
