@@ -61,7 +61,7 @@
       },
       loadFooter: '_footer.md',
       plugins: [
-      function(hook, vm) {
+      function(hook) {
         hook.doneEach(function () {
           // Invoked each time after the data is fully loaded, no arguments,
           // ...
@@ -107,9 +107,8 @@
   <script src="https://cdn.jsdelivr.net/npm/docsify-progress@latest/dist/progress.min.js"></script>
   <!--标题手风琴-->
   <script src="//unpkg.com/docsify-accordify/src/index.js"></script>
-
+  <!--文档页脚-->
   <script src="//cdn.jsdelivr.net/npm/@alertbox/docsify-footer/dist/docsify-footer.min.js"></script>
-
 </body>
 
 <style>

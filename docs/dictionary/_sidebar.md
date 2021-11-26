@@ -1,1 +1,1 @@
-* [logback.xml示例](dictionary/logback.xml.md)
+* [Java](dictionary/java/README.md)

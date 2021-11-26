@@ -1,2 +1,2 @@
-* [3261](note/RFC3261.md)
-* [EOPForJava](note/EOPForJava.md)
+* [SIP](note/sip/README.md)
+* [Book](note/book/README.md)
