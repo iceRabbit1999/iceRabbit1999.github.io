@@ -4,5 +4,4 @@
 
 **Clarity**:*Clear water that enhances the ability to meditate.*
 
-Make sure you have enough clarity before you start your reading journey
-
+Long may the clarity shine
