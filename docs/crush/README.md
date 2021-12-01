@@ -1,3 +1,3 @@
 # Crush
 
->Crush:a strong but temporary feeling of liking someone
+>Crush: A strong but temporary feeling of liking someone

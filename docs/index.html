@@ -61,7 +61,6 @@
                 color: "var(--theme-color,#42b983)",
                 height: "10px",
             },
-            loadFooter: '_footer.md',
             plugins: [
                 function (hook) {
                     hook.doneEach(function () {
@@ -69,6 +68,16 @@
                         // ...
                         twemoji.parse(document);
                     })
+                    var footer = [
+                        '<footer>',
+                        '<span>&copy;2021  </span>',
+                        '<span>IceRabbit</span>',
+                        '</footer>'
+                    ].join('');
+
+                    hook.afterEach(function(html) {
+                        return html + footer;
+                    });
                 }
             ]
 
@@ -109,8 +118,7 @@
     <script src="https://cdn.jsdelivr.net/npm/docsify-progress@latest/dist/progress.min.js"></script>
     <!--标题手风琴-->
     <script src="//unpkg.com/docsify-accordify/src/index.js"></script>
-    <!--文档页脚-->
-    <script src="//cdn.jsdelivr.net/npm/@alertbox/docsify-footer/dist/docsify-footer.min.js"></script>
+    <!--jquery-->
     <script src="http://cdn.staticfile.org/jquery/1.11.1-rc2/jquery.min.js"></script>
 
 <script>
