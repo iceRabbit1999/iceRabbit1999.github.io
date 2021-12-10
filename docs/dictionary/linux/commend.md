@@ -1,5 +1,21 @@
 # *Commend*
 
+
+
+# Java
+
+1. 后台启动运行且把日志写到指定输出文件 `nohup java -jar xx.jar >xxx.log &`
+
+# MySQL
+
+1. 创建数据库并指定编码utf8 `create database xxx character set utf8 collate utf8_general_ci`
+
+
+
+
+
+
+
 # WSL
 
 1. wsl没有systemctl指令![image-20211206112945640](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/wsl_service.png)
@@ -15,7 +31,14 @@
       1. 删除端口9426的端口转发
 
 
+
+
+# 防火墙
+
+1. 开放防火墙端口`iptables -I INPUT -s 10.153.97.0/24 -p tcp --dport 9006 -j ACCEPT` `iptables-save`
+
+
+
 # 配置文件 
 
 1. 使配置文件生效:`source /etc/profile`
-
