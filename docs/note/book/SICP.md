@@ -163,4 +163,58 @@ The interpreter makes this step-by-step program construction particularly conven
 3. The contrast between the two processes
    1. In the iterative case, the program variables provide a complete description of the state of the process at any point
    2. Not so with the recursive process. In this case there is some additional ''hidden'' information, maintained by the interpreter and not contained in the program variables, which indicates ``where the process is'' in negotiating the chain of deferred operations
+4. tail-recursive:
+   1. we can say that a function is tail recursive if the final result of the recursive call – in this case 24 – is also the final result of the function itself, and that is why it’s called “tail” recursion
+   2. because the final function call (the tail-end call) actually holds the final result
+
+### 1.2.2 Tree Recursion
+
+not important
+
+### 1.2.3 Orders of Growth
+
+### 1.2.4 Exponentiation
+
+### 1.2.5 Greatest Common Divisors
+
+### 1.2.6 Example:Testing for Primality
+
+## 1.3 Formulating Abstractions with Higher-Order Procedures
+
+1. One of the things we should demand from a powerful programming language is the ability to build abstractions by assigning names to common patterns and then to work in terms of the abstractions directly
+2. Procedures that manipulate procedures are called *higher-order procedures*
+
+### 1.3.1 Procedures as Arguments
+
+```scheme
+(define (identity x) x)
+
+(define (sum-integers a b)
+  (sum identity a inc b))
+
+(sum-integers 1 10)
+55
+```
+
+### 1.3.2 Constructing Procedures Using Lambda
+
+1. In general, `lambda` is used to create procedures in the same way as `define`, except that no name is specified for the procedure(anonymous procedure/箭头函数)
+2. Using let to create local variables
+   1. A `let` expression is simply syntactic sugar for the underlying `lambda` application.
+
+### 1.3.3 Procedures as General Methods
+
+1. 提供了二分查找法和定点迭代(函数不动点)两个例子
+
+### 1.3.4 Proceduces as Returned Values
+
+1. first-class procedures
+   1. In general, programming languages impose restrictions on the ways in which computational elements can be manipulated. Elements with the fewest restrictions are said to have *first-class* status.
+   2. Lisp, unlike other common programming languages, awards procedures full first-class status.
+
+# 2 Building Abstractions with Data
+
+1. The general technique of isolating the parts of a program that deal with how data objects are represented from the parts of a program that deal with how data objects are used is a powerful design methodology called ***data abstraction***.
+
+## 2.1 Introduction to Data Abstraction
 

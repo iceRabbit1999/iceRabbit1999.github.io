@@ -3,20 +3,22 @@
 2. algebra 代数
 3. arcane：玄妙的
 4. accurately：准确的
-5. apprentice：学徒
-6. anticipate：预计
-7. aided：援助
-8. automobiles：汽车
-9. appropriate：合适的
-10. acronym：缩略语
-11. accommodate：适应
-12. arbitrary：任意的
-13. accumulation：积累
-14. arithmetic:算术
-15. alternative：替代方案
-16. approximations:近似值
-17. auxiliary：辅助性
-18. analogous：类比
+5. accuracy accurate 
+6. apprentice：学徒
+7. anticipate：预计
+8. aided：援助
+9. automobiles：汽车
+10. appropriate：合适的
+11. acronym：缩略语
+12. accommodate：适应
+13. arbitrary：任意的
+14. accumulation：积累
+15. arithmetic:算术
+16. alternative：替代方案
+17. approximations:近似值
+18. auxiliary：辅助性
+19. analogous：类比
+20. arbitrary：任意的
 
 # B
 
@@ -54,6 +56,11 @@
 26. coexist：共存
 27. composite:复合
 28. contraction：收缩
+29. considerably:大体上
+30. crude：粗略的
+31. converge：收敛
+32. conceptual：概念性
+33. closure：关闭
 
 # D
 
@@ -73,6 +80,12 @@
 12. disturbing：令人不安的
 13. decomposition：分解
 14. deferred：递延
+15. denomination：派别
+16. degenerate：堕落，退化
+17. desirable：理想的
+18. divisor:除数
+19. definite integral：定积分
+20. denominator：分母
 
 # E
 
@@ -89,15 +102,29 @@
 11. extensively：广泛的
 12. exhibit：展览
 13. exceeds：超过
+14. exponentially：成倍的
+15. Exponentiation:指数化
+16. equivalent：相当于
+17. explicitly:明确的
+18. expressive：表现力
+19. elaborate:精心制作的
+20. embodied:体现在
+21. enhance：加强
+22. essence：精髓
+23. erect：竖立
+24. elementary：初级的
 
 # F
 
 1. formalism：形式主义
 2. factorials:阶乘
+3. fraction：分数
 
 # G
 
 1. glitches：故障
+2. gross：总金额，粗略
+3. glue：胶合剂
 
 # H
 
@@ -124,6 +151,12 @@
 17. in terms of:就...而言
 18. intention：意向
 19. indicated：表示
+20. instructive:有指导意义的
+21. identical:相同的
+22. intermediate quantities：中间量
+23. interval：间隔
+24. impose:强加
+25. irrelevant：不相关
 
 # L
 
@@ -131,6 +164,7 @@
 2. legitimate：合法的
 3. lurking:潜伏
 4. lexical：词法
+5. logarithmically：对数
 
 
 
@@ -149,11 +183,13 @@
 2. nuclear：核子
 3. notations：记号
 4. nested：嵌套
+5. numerator：分子
 
 # O
 
 1. operands：操作数
 2. overall：总体
+3. oscillating：摆动的
 
 # P
 
@@ -178,6 +214,9 @@
 1. profound：深刻的
 1. prototypical：原型
 1. proportional：按比例
+1. probabilistic：概率性的
+1. prescribed：规定
+1. polynomials：多项式
 
 # Q
 
@@ -197,6 +236,9 @@
 9. region：地区
 10. recast：改写
 11. reveals：揭示
+12. respectively：分别是
+13. restricted：受限制的
+14. rational：理性
 
 # S
 
@@ -219,12 +261,24 @@
 17. stipulation：约定
 18. simultaneously：同时
 19. shrink：缩水
+20. sandwiched：夹层的
+21. severely：严肃的
+22. Similarly：同样的
 
 # T
 
 1. tractable：温和的
 2. tactics：战术
+3. trivial:琐碎
+4. tenuous：脆弱的
+
+# U
+
+1. underlying:底层
+2. unravel：解开
 
 # V
 
 1. versus：相对于
+2. via：通过
+3. vastly：巨大的
