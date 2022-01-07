@@ -19,6 +19,7 @@
 18. auxiliary：辅助性
 19. analogous：类比
 20. arbitrary：任意的
+21. assumptions:假设
 
 # B
 
@@ -61,6 +62,7 @@
 31. converge：收敛
 32. conceptual：概念性
 33. closure：关闭
+34. concrete：混凝土，具体的
 
 # D
 
@@ -176,6 +178,7 @@
 4. mechanism：机制
 5. mutually:互相
 6. maintain：保留
+7. methodology：方法论
 
 # N
 
@@ -239,6 +242,7 @@
 12. respectively：分别是
 13. restricted：受限制的
 14. rational：理性
+15. remedy:补救措施
 
 # S
 

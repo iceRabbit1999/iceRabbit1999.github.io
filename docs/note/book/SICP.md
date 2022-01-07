@@ -218,3 +218,23 @@ not important
 
 ## 2.1 Introduction to Data Abstraction
 
+1. Data abstraction is a methodology that enables us to isolate how a compound data object is used from the details of how it is constructed from more primitive data objects
+
+### 2.1.1 Example:Arithmetic Operations for Rational Numbers
+
+1. 这里提到的所谓的selector和constructor，即getter和构造函数
+
+2. pairs:takes two arguments and returns a compound data object that contains the two arguments as parts
+
+   1. ```scheme
+      (define x (cons 1 2))
+      
+      (car x)
+      1
+      
+      (cdr x)
+      2
+      ```
+
+### 2.2.2 Abstraction Barriers
+
