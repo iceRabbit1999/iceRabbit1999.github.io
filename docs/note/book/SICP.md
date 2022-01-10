@@ -236,5 +236,22 @@ not important
       2
       ```
 
-### 2.2.2 Abstraction Barriers
+### 2.1.2 Abstraction Barriers
+
+1. isolate different 'levels' of the system.
+2. In effect, procedures at each level are the interfaces that define the abstraction barriers and connect the different levels
+3. 实际上就是对不同层级的抽象，涉及到封装的概念
+
+### 2.1.3 What Is Meant by Data?
+
+1.  In general, we can think of data as defined by some collection of selectors and constructors, together with specified conditions that these procedures must fulfill in order to be a valid representation
+2. Message paasing:the ability to manipulate procedures as objects automatically provides the ability to represent compound data.
+
+### 2.1.4 Extended Exercise:Interval Arithmetic
+
+## 2.2 Hierarchical Data and the Closure Property
+
+
+
+
 

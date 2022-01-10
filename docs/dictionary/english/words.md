@@ -20,6 +20,8 @@
 19. analogous：类比
 20. arbitrary：任意的
 21. assumptions:假设
+22. appropriate:适当的
+23. adequate：充分的
 
 # B
 
@@ -63,6 +65,7 @@
 32. conceptual：概念性
 33. closure：关闭
 34. concrete：混凝土，具体的
+35. corresponds：对应
 
 # D
 
@@ -88,6 +91,7 @@
 18. divisor:除数
 19. definite integral：定积分
 20. denominator：分母
+21. distinguish：辨别
 
 # E
 
@@ -103,18 +107,20 @@
 10. evident：显然
 11. extensively：广泛的
 12. exhibit：展览
-13. exceeds：超过
-14. exponentially：成倍的
-15. Exponentiation:指数化
-16. equivalent：相当于
-17. explicitly:明确的
-18. expressive：表现力
-19. elaborate:精心制作的
-20. embodied:体现在
-21. enhance：加强
-22. essence：精髓
-23. erect：竖立
-24. elementary：初级的
+13. exhibiting：参展
+14. exceeds：超过
+15. exponentially：成倍的
+16. Exponentiation:指数化
+17. equivalent：相当于
+18. explicitly:明确的
+19. expressive：表现力
+20. elaborate:精心制作的
+21. embodied:体现在
+22. enhance：加强
+23. essence：精髓
+24. erect：竖立
+25. elementary：初级的
+26. envision：设想
 
 # F
 
@@ -131,6 +137,8 @@
 # H
 
 1. hierarchical:分层的
+2. horizontal：水平的
+3. Hence：因此
 
 # I
 
@@ -159,6 +167,7 @@
 23. interval：间隔
 24. impose:强加
 25. irrelevant：不相关
+26. intuitive：直观的
 
 # L
 
@@ -193,6 +202,7 @@
 1. operands：操作数
 2. overall：总体
 3. oscillating：摆动的
+4. obscure：模糊不清
 
 # P
 
@@ -243,6 +253,7 @@
 13. restricted：受限制的
 14. rational：理性
 15. remedy:补救措施
+16. repertoire：剧目
 
 # S
 
@@ -268,6 +279,7 @@
 20. sandwiched：夹层的
 21. severely：严肃的
 22. Similarly：同样的
+23. solely：仅仅
 
 # T
 
@@ -280,9 +292,11 @@
 
 1. underlying:底层
 2. unravel：解开
+3. universal:普及
 
 # V
 
 1. versus：相对于
 2. via：通过
 3. vastly：巨大的
+4. variety：种类
