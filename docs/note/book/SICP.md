@@ -251,7 +251,17 @@ not important
 
 ## 2.2 Hierarchical Data and the Closure Property
 
+1. closure property:In general, an operation for combining data objects satisfies the closure property if the results of combining things with that operation can themselves be combined using the same operation
 
+### 2.2.1 Representing Sequences
+
+链表的例子
+
+### 2.2.2 Hierarchical Structures
+
+类似于对象有一个属性也是对象的嵌套层次结构
+
+### 2.2.3 Sequences as Conventional Interfaces
 
 
 

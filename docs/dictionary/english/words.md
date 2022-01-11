@@ -92,6 +92,7 @@
 19. definite integral：定积分
 20. denominator：分母
 21. distinguish：辨别
+22. diagonal：对角线
 
 # E
 
@@ -203,6 +204,7 @@
 2. overall：总体
 3. oscillating：摆动的
 4. obscure：模糊不清
+5. outset:出发点
 
 # P
 
@@ -300,3 +302,4 @@
 2. via：通过
 3. vastly：巨大的
 4. variety：种类
+5. vivid：鲜艳，逼真
