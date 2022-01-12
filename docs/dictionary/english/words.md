@@ -22,6 +22,7 @@
 21. assumptions:假设
 22. appropriate:适当的
 23. adequate：充分的
+24. accumulation：积累
 
 # B
 
@@ -66,6 +67,9 @@
 33. closure：关闭
 34. concrete：混凝土，具体的
 35. corresponds：对应
+36. crucially：至关重要
+37. cascade：逐级，瀑布
+38. crude：粗，粗略的
 
 # D
 
@@ -93,6 +97,8 @@
 20. denominator：分母
 21. distinguish：辨别
 22. diagonal：对角线
+23. delimit：划定
+24. dispense：分发，分配
 
 # E
 
@@ -122,6 +128,8 @@
 24. erect：竖立
 25. elementary：初级的
 26. envision：设想
+27. enmeshed：陷入困境
+28. exploit：利用
 
 # F
 
@@ -169,6 +177,7 @@
 24. impose:强加
 25. irrelevant：不相关
 26. intuitive：直观的
+27. intact：不变的
 
 # L
 
@@ -189,6 +198,7 @@
 5. mutually:互相
 6. maintain：保留
 7. methodology：方法论
+8. manifest：彰显
 
 # N
 
@@ -197,6 +207,7 @@
 3. notations：记号
 4. nested：嵌套
 5. numerator：分子
+6. mingling：混杂在一起
 
 # O
 
@@ -205,6 +216,7 @@
 3. oscillating：摆动的
 4. obscure：模糊不清
 5. outset:出发点
+6. occurrence：发生的情况
 
 # P
 
@@ -232,6 +244,7 @@
 1. probabilistic：概率性的
 1. prescribed：规定
 1. polynomials：多项式
+1. paradigm：范例
 
 # Q
 
@@ -282,6 +295,7 @@
 21. severely：严肃的
 22. Similarly：同样的
 23. solely：仅仅
+24. scaled:按比例
 
 # T
 
@@ -295,6 +309,7 @@
 1. underlying:底层
 2. unravel：解开
 3. universal:普及
+4. ultimately:最终
 
 # V
 

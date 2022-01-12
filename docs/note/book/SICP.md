@@ -263,5 +263,35 @@ not important
 
 ### 2.2.3 Sequences as Conventional Interfaces
 
+1. modular
+   1.  We can encourage modular design by providing a library of standard components together with a conventional interface for connecting the components in flexible ways.
+2. 所谓的模块化思想
+3. nested mappings 举了个例题
 
+### 2.2.4 Example:A Picture Language
+
+介绍了之前提到的picture language
+
+
+
+## 2.3 Symbolic Data
+
+the ability to work with arbitrary symbols as data.
+
+### 2.3.1 Quotation
+
+```scheme
+(define a 1)
+
+(define b 2)
+
+(list a b)
+(1 2)
+
+(list 'a 'b)
+(a b)
+
+(list 'a b)
+(a 2)
+```
 
