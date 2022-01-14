@@ -1,3 +1,7 @@
+***netty***
+
+[all code here](https://github.com/iceRabbit1999/netty-tango)
+
 # 一 入门
 
 ## 1.1 概述
@@ -42,8 +46,6 @@ Dubbo、zk、RocketMQ、ElasticSearch、Spring5(对HTTP协议的实现)、GRpc�
 
 通过Netty实现HTTP请求的处理，即接收HTTP请求，返回HTTP响应
 
-[get code here](https://github.com/iceRabbit1999/netty-tango)
-
 
 
 ## 1.3 两个处理器的区别
@@ -84,4 +86,92 @@ Dubbo、zk、RocketMQ、ElasticSearch、Spring5(对HTTP协议的实现)、GRpc�
    1. 服务端作为接收方，直接将接收到的Frame解码为String后进行显示，不对这些Frame进行粘包与拆包
 
 ### 2.2.2 example
+
+## 2.3 发送方粘包
+
+### 2.3.1 需求
+
+1. 客户端
+   1. 客户端作为发送方，向服务端发送100个小的ByteBuf数据包，这100个数据包会被合并为若干个Frame进行发送。这个过程中会发生粘包与拆包
+2. 服务端
+   1. 服务端作为接收方，直接将接收到的Frame解码为String后进行显示，不对这些Frame进行粘包与拆包
+
+### 2.3.2 example
+
+## 2.4 接收方的粘包拆包
+
+1. 接收方的粘包拆包实际在做的工作是解码工作
+   1. 解码基本思想：：发送方在发送数据中添加一个分隔标记，并告诉接收方该标记是什么
+
+## 2.5 LineBasedFrameDecoder
+
+如其名，按照行分隔符对数据进行拆包粘包，解码出ByteBuf
+
+### 2.5.1 example
+
+## 2.6 DelimiterBasedFrameDecoder
+
+按照指定分隔符对数据进行拆包粘包，解码出ByteBuf
+
+### 2.6.1 example
+
+## 2.7 FixedLengthFrameDecoder
+
+按照指定的长度对Frame中的数据进行拆粘包
+
+## 2.8 LengthFieldBasedFrameDecoder
+
+基于长度域的帧解码器，用于对LengthFieldPrepender编码器编码后的数据进行解码的
+
+### 2.8.1 构造器参数
+
+1. maxFrameLength：要解码的Frame的最大长度
+2. lengthFieldOffset：长度域的偏移量
+3. lengthFieldLength：长度域的长度
+4. lengthAdjustment：要添加到长度域值中的补偿值，长度矫正值。
+5. initialBytesToStrip：从解码帧中要剥去的前面字节
+
+### 2.8.2 example
+
+#3 三 netty高级应用
+
+## 3.1 WebSocket长连接
+
+### 3.1.1 WebSocket简介
+
+WebSocket是HTML5中的协议，是构建在HTTP协议之上的一个网络通信协议，其以长连接的方式实现了客户端与服务端的全双工通信
+
+### 3.1.2 需求
+
+在页面上有两个左右并排的文本域，它们的中间有一个“发送”按钮。在左侧文本域中输入文本内容后，单击发送按钮，会显示到右侧文本域中。
+
+### 3.1.3 example
+
+### 3.1.6 WebSocket握手原理
+
+![image-20220114142151245](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/websocket握手原理.png)
+
+## 3.2 网络聊天webchat example
+
+### 3.2.1 需求
+
+实现一个网络群聊工具。参与聊天的客户端消息是通过服务端进行广播的
+
+### 3.2.2 example
+
+## 3.3 读写空闲检测
+
+IdleStateHandler
+
+## 3.4 心跳机制
+
+1. 心跳：即在TCP长连接中, 客户端和服务器之间定期发送的一种特殊的数据包, 通知对方自己还“活着”,以确保TCP连接的有效性。
+
+### 3.4.1 需求
+
+Client端连接到Server端后，会循环执行一个定时任务： 随机等待几秒，然后ping一下Server端，即发送一个心跳。当Server端在等待了指定时间后没有读取到Client端发送的心跳，Server端会 主动断开连
+
+### 3.4.5 客户端重连服务端
+
+## 3.5 手写Tomcat
 
