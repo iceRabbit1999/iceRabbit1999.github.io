@@ -99,6 +99,7 @@
 22. diagonal：对角线
 23. delimit：划定
 24. dispense：分发，分配
+24. Deallocates：取消分配
 
 # E
 
@@ -130,6 +131,7 @@
 26. envision：设想
 27. enmeshed：陷入困境
 28. exploit：利用
+28. expediency:权宜之计
 
 # F
 
@@ -199,6 +201,7 @@
 6. maintain：保留
 7. methodology：方法论
 8. manifest：彰显
+8. minimalist:极简主义
 
 # N
 
