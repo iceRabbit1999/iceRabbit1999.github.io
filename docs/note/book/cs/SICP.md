@@ -295,3 +295,19 @@ the ability to work with arbitrary symbols as data.
 (a 2)
 ```
 
+# 2.4 Multiple Respresentations for Abstract Data
+
+1. vertical barrier and horizontal barrier
+   1. vertical barrier that gives us the ability to separately design and install alternative representations
+   2. horizontal barrier isolate ``higher-level'' operations from ``lower-level'' representations.
+
+### 2.4.1 Representations for Complex Numbers
+
+有点类似overload
+
+### 2.4.2 Tagged data
+
+有点类似override
+
+### 2.4.3 Data-Directed Programmingand Additivity
+

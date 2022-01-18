@@ -23,6 +23,10 @@
 22. appropriate:适当的
 23. adequate：充分的
 24. accumulation：积累
+25. additively：加法，叠加
+26. assembling：装配
+27. axis:轴线
+28. ambiguity：模糊的
 
 # B
 
@@ -70,6 +74,8 @@
 36. crucially：至关重要
 37. cascade：逐级，瀑布
 38. crude：粗，粗略的
+39. commitment:承诺
+40. conflict：冲突
 
 # D
 
@@ -132,6 +138,7 @@
 27. enmeshed：陷入困境
 28. exploit：利用
 28. expediency:权宜之计
+30. extremes:极端
 
 # F
 
@@ -180,6 +187,7 @@
 25. irrelevant：不相关
 26. intuitive：直观的
 27. intact：不变的
+28. imaginary:虚构的
 
 # L
 
@@ -248,6 +256,8 @@
 1. prescribed：规定
 1. polynomials：多项式
 1. paradigm：范例
+1. polar：极地
+1. plausible：可信的
 
 # Q
 
