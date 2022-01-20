@@ -1,2 +1,2 @@
 * [cs](note/book/cs/README.md) 
-* [cs](note/book/masterpiece/README.md) 
+* [masterpiece](note/book/masterpiece/README.md) 
