@@ -52,7 +52,7 @@ Dubbo、zk、RocketMQ、ElasticSearch、Spring5(对HTTP协议的实现)、GRpc�
 
 1. SimpleChannelInboundHandler中的channelRead()方法**会**自动释放接收到的来自于对方的msg所占有的所有资源。
 2. ChannelInboundHandlerAdapter中的channelRead()方法**不会**自动释放接收到的来自于对方的msg
-3. 区别早就不同的运用场景
+3. 区别造就不同的运用场景
    1. 若对方没有向自己发送数据，则自定义处理器建议继承自ChannelInboundHandlerAdapter
       1. 若继承自SimpleChannelInboundHandler需要重写channelRead0()方法。而重写该方法的目的是对来自于对方的数据进行处理。因为对方根本就没有发送数据，所以也就没有必要重写channelRead0()方法
    2. 若对方向自己发送了数据，而自己又需要将该数据再发送给对方，则自定义处理器建议继承自ChannelInboundHandlerAdapter
