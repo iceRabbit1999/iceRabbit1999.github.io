@@ -1,4 +1,7 @@
+# *Word*
+
 # A
+
 1. assume 假设
 2. algebra 代数
 3. arcane：玄妙的
