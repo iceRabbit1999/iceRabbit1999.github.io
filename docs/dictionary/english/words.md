@@ -93,6 +93,9 @@
 47. capable：有能力的
 48. concrete:具体的
 49. collaborate：合作
+49. constraints：约束
+49. complementary：补充
+49. compact:袖珍的，紧凑的
 
 # D
 
@@ -131,6 +134,7 @@
 31. derived：衍生的
 32. dormant：休眠
 33. distributed：分布式
+33. delve：钻研
 
 # E
 
@@ -168,6 +172,7 @@
 32. expertise：专业知识
 33. error-prone：容易出错
 34. enlarged：放大
+34. eliminates:消除
 
 # F
 
@@ -231,6 +236,15 @@
 34. intricacies：错综复杂
 35. implications：影响
 36. indispensable：必不可少
+36. imposed：强加
+36. intercepting：拦截 
+36. invocation：调用
+
+
+
+# J
+
+1. jeopardizing:危及
 
 # L
 
@@ -347,6 +361,7 @@
 18. resume：恢复，简历
 19. revisit：重访
 20. Robustness：鲁棒性，稳健性，健壮性
+20. relevance：关联
 
 # S
 
@@ -377,7 +392,7 @@
 25. synthesis：综述
 26. scale up：放大
 27. spectrum：光谱，范围
-28. scenario：设想
+28. scenario：设想，场景
 29. scalabilit：可扩展性
 30. short supply：供不应求
 31. stimulated：刺激
@@ -414,3 +429,4 @@
 6. violating：违反
 7. ultimately：最终的
 8. vibrant:充满活力
+8. volume:体积
