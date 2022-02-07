@@ -311,3 +311,46 @@ the ability to work with arbitrary symbols as data.
 
 ### 2.4.3 Data-Directed Programmingand Additivity
 
+1. 提出新的问题：not additivity
+   1.  The person implementing the generic selector procedures must modify those procedures each time a new representation is installed, and the people interfacing the individual representations must modify their code to avoid name conflicts
+2. data-directed programming
+   1. nothing should change at all if a new representation is added to the system
+   2. The key idea of data-directed programming is to handle generic operations in programs by dealing explicitly with operation-and-type tables
+   3. 将table以行和列的思维展开构造出两种方案，以列展开就是Message passing，暂时没搞明白
+
+## 2.5 Systems with Generic Operations
+
+### 2.5.1 Generic Arithmetic Operations
+
+用nested tag 层级的表示isolation barrier
+
+### 2.5.2 Combining Data of Different Types
+
+cross-type operation
+
+1. coercion：Often the different data types are not completely independent, and there may be ways by which objects of one type may be viewed as being of another type. This process is called coercion
+2. 有点类似类型强转？
+3. hierarchies of type
+   1. 继承关系 tower structure 继承树
+   2. inadequacies：多继承带来的一系列问题
+
+# 3 Modularity,Objeccts,and State
+
+1. Two "world views" strategies of the structure of systems
+   1. Objects
+      1.  viewing a large system as a collection of distinct objects whose behaviors may change over ti
+   2. streams
+      1. much as an electrical engineer views a signal-processing system.
+
+## 3.1 Assignment and Local State
+
+Java的万物皆对象的概念，对象内部强耦合，对象之间松耦合 -> Objects的最佳实践
+
+提到一个Assignment的概念，目的是适应Objects的state change
+
+### 3.1.1 Local State Variables
+
+好像就是类的成员变量
+
+### 3.1.2 The Benefits of introducing Assignment
+

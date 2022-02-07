@@ -30,12 +30,17 @@
 26. assembling：装配
 27. axis:轴线
 28. ambiguity：模糊的
+29. architecture：架构
+30. allocate:分配
+31. architectural：建筑的
+32. accommodate：容纳
 
 # B
 
 1. blur：模糊不清
 2. bypassed:绕过
 3. By contrast:相比之下
+4. boilerplate：样板
 
 # C
 
@@ -79,6 +84,15 @@
 38. crude：粗，粗略的
 39. commitment:承诺
 40. conflict：冲突
+41. clause：条款
+42. cumbersome:复杂的
+43. coherent：连贯性
+44. coercion：胁迫
+45. concurrency：并发
+46. cumbersome：繁琐
+47. capable：有能力的
+48. concrete:具体的
+49. collaborate：合作
 
 # D
 
@@ -109,6 +123,14 @@
 23. delimit：划定
 24. dispense：分发，分配
 24. Deallocates：取消分配
+26. datum: 数据点
+27. dispatching：派遣
+28. dictated：支配
+29. decoupled：解耦
+30. doable：可行的
+31. derived：衍生的
+32. dormant：休眠
+33. distributed：分布式
 
 # E
 
@@ -142,24 +164,34 @@
 28. exploit：利用
 28. expediency:权宜之计
 30. extremes:极端
+31. elapsed：过期的
+32. expertise：专业知识
+33. error-prone：容易出错
+34. enlarged：放大
 
 # F
 
 1. formalism：形式主义
 2. factorials:阶乘
 3. fraction：分数
+4. façade：正面
+5. former：前者
 
 # G
 
 1. glitches：故障
 2. gross：总金额，粗略
 3. glue：胶合剂
+4. grapple:扭打
+5. germane：密切相关
 
 # H
 
 1. hierarchical:分层的
 2. horizontal：水平的
 3. Hence：因此
+4. hierarchies：等级制度
+5. hats off to yo：向你脱帽致敬
 
 # I
 
@@ -191,6 +223,14 @@
 26. intuitive：直观的
 27. intact：不变的
 28. imaginary:虚构的
+29. incorporates：融入
+30. inadequacies：不足之处
+31. investigate：调查
+32. innovative：创新的
+33. inclination：志趣
+34. intricacies：错综复杂
+35. implications：影响
+36. indispensable：必不可少
 
 # L
 
@@ -199,6 +239,10 @@
 3. lurking:潜伏
 4. lexical：词法
 5. logarithmically：对数
+6. latent：潜在的
+7. linefeed：换行
+8. linchpin：关键
+9. latency：延迟
 
 
 
@@ -213,6 +257,7 @@
 7. methodology：方法论
 8. manifest：彰显
 8. minimalist:极简主义
+10. moderate：中等的
 
 # N
 
@@ -222,6 +267,8 @@
 4. nested：嵌套
 5. numerator：分子
 6. mingling：混杂在一起
+7. nonetheless:然而
+8. neophytes：新手
 
 # O
 
@@ -231,6 +278,9 @@
 4. obscure：模糊不清
 5. outset:出发点
 6. occurrence：发生的情况
+7. overwhelming：铺天盖地
+8. overhead of context-switchin：上下文切换的开销
+9. orientation：方向
 
 # P
 
@@ -261,6 +311,14 @@
 1. paradigm：范例
 1. polar：极地
 1. plausible：可信的
+1. preserve：保存
+1. perception：感知
+1. prominent：突出的
+1. promotes：促进
+1. peruse：细读
+1. practitioners ：从业者
+1. preeminent:卓越的
+1. philosophical：哲学的
 
 # Q
 
@@ -285,6 +343,10 @@
 14. rational：理性
 15. remedy:补救措施
 16. repertoire：剧目
+17. rapid：快速
+18. resume：恢复，简历
+19. revisit：重访
+20. Robustness：鲁棒性，稳健性，健壮性
 
 # S
 
@@ -312,6 +374,13 @@
 22. Similarly：同样的
 23. solely：仅仅
 24. scaled:按比例
+25. synthesis：综述
+26. scale up：放大
+27. spectrum：光谱，范围
+28. scenario：设想
+29. scalabilit：可扩展性
+30. short supply：供不应求
+31. stimulated：刺激
 
 # T
 
@@ -319,6 +388,9 @@
 2. tactics：战术
 3. trivial:琐碎
 4. tenuous：脆弱的
+5. thorny：棘手的
+6. trivial：不重要的
+7. throughput：吞吐量
 
 # U
 
@@ -326,6 +398,11 @@
 2. unravel：解开
 3. universal:普及
 4. ultimately:最终
+5. unified：统一的
+6. undermines：破坏
+7. unadorned：朴实无华
+8. utilization：利用率
+9. underestimate：低估
 
 # V
 
@@ -334,3 +411,6 @@
 3. vastly：巨大的
 4. variety：种类
 5. vivid：鲜艳，逼真
+6. violating：违反
+7. ultimately：最终的
+8. vibrant:充满活力
