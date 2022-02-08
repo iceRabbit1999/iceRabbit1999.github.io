@@ -34,6 +34,8 @@
 30. allocate:分配
 31. architectural：建筑的
 32. accommodate：容纳
+32. arrangement：安排
+32. adequately：充分的
 
 # B
 
@@ -135,6 +137,8 @@
 32. dormant：休眠
 33. distributed：分布式
 33. delve：钻研
+33. dedicated：专用
+33. derivation：推导
 
 # E
 
@@ -173,6 +177,10 @@
 33. error-prone：容易出错
 34. enlarged：放大
 34. eliminates:消除
+34. embodies：体现
+34. evoke：唤起
+34. embedded：嵌入式
+34. entails：包含
 
 # F
 
@@ -220,25 +228,26 @@
 18. intention：意向
 19. indicated：表示
 20. instructive:有指导意义的
-21. identical:相同的
-22. intermediate quantities：中间量
-23. interval：间隔
-24. impose:强加
-25. irrelevant：不相关
-26. intuitive：直观的
-27. intact：不变的
-28. imaginary:虚构的
-29. incorporates：融入
-30. inadequacies：不足之处
-31. investigate：调查
-32. innovative：创新的
-33. inclination：志趣
-34. intricacies：错综复杂
-35. implications：影响
-36. indispensable：必不可少
+21. intermediate quantities：中间量
+22. interval：间隔
+23. impose:强加
+24. irrelevant：不相关
+25. intuitive：直观的
+26. intact：不变的
+27. imaginary:虚构的
+28. incorporates：融入
+29. inadequacies：不足之处
+30. investigate：调查
+31. innovative：创新的
+32. inclination：志趣
+33. intricacies：错综复杂
+34. implications：影响
+35. indispensable：必不可少
 36. imposed：强加
-36. intercepting：拦截 
-36. invocation：调用
+37. intercepting：拦截 
+38. invocation：调用
+39. identical：完全相同的
+36. intermediate：中间的
 
 
 
@@ -257,6 +266,7 @@
 7. linefeed：换行
 8. linchpin：关键
 9. latency：延迟
+9. legacy：遗产
 
 
 
@@ -272,6 +282,7 @@
 8. manifest：彰显
 8. minimalist:极简主义
 10. moderate：中等的
+10. migration：迁移
 
 # N
 
@@ -304,6 +315,7 @@
 1. procedures：程序
 1. prescribe：订明
 1. precisely：精确的
+1. precision:精确
 1. phenomena：现象
 1. practical：实用
 1. period：时间
@@ -311,7 +323,7 @@
 1. promulgate：颁布
 1. primitive:原始的
 1. parentheses：小括号
-1.  prefix notation：前缀记号法
+1. prefix notation：前缀记号法
 1. percolate：浸润
 1. pseudo：伪装
 1. predetermined：预定的
@@ -333,6 +345,8 @@
 1. practitioners ：从业者
 1. preeminent:卓越的
 1. philosophical：哲学的
+1. propagating：传播
+1. Plain：平凡的
 
 # Q
 
@@ -362,6 +376,8 @@
 19. revisit：重访
 20. Robustness：鲁棒性，稳健性，健壮性
 20. relevance：关联
+20. reap：收割
+20. resembling：类似于
 
 # S
 
@@ -396,6 +412,8 @@
 29. scalabilit：可扩展性
 30. short supply：供不应求
 31. stimulated：刺激
+31. symbiotic：共生
+31. semantics:语义
 
 # T
 
@@ -418,6 +436,7 @@
 7. unadorned：朴实无华
 8. utilization：利用率
 9. underestimate：低估
+9. uncontaminated：未受污染
 
 # V
 
@@ -430,3 +449,7 @@
 7. ultimately：最终的
 8. vibrant:充满活力
 8. volume:体积
+
+# W
+
+1. wholesale:批发

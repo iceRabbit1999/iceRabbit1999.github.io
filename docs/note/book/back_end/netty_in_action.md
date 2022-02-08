@@ -358,5 +358,334 @@ public class EchoClient {
 
 ## 2.6 Summary
 
-## Chapter3 Netty components and design
+# Chapter3 Netty components and design
+
+## 3.1 Channel, EventLoop, and ChannelFuture
+
+Netty's networking abstraction:
+
+1. **Channel——Sockets**
+2. **EventLoop——Control flow, multithreading, concurrency**
+3. **ChannelFuture——Asynchronous notification**
+
+### 3.1.1 Interface Channel
+
+1. *Channel* greatly reduces the complexity of working directly with Sockets
+2. have many predefined, specialized implementations
+
+### 3.1.2 Interface EventLoop
+
+1. Netty's core abstraction for handling events that occur during the lifetime of a connection
+
+2. the relationships among *Channel*, *EventLoop*, *Thread*, *EventLoopGroup*
+
+   ![image-20220208095446950](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-in-action-3.1.png)
+
+   1. **An *EventLoopGroup* contains one or more *EventLoops***
+   2. **An *EventLoop* is bound to a single *Thread* for its lifetime**
+   3. **All I/O events processed by an *EventLoop* are handled on its dedicated *Thread***
+   4. **A *Channel* is registered for its lifetime with a single *EventLoop***
+   5. **A single *EventLoop* may be assigned to one or more *Channels***
+   6. EventLoopGroup n↔1 EventLoop
+   7. EventLoop 1↔1 Thread
+   8. EventLoop 1↔1 Channel
+   9. eliminate synchronous
+      1. 对每一个给定的Channel来说，所有的I/O操作都由一个相同的线程执行
+
+###3.1.3 Interface ChannelFuture
+
+1. Netty is asynchronous, so we need a way to determine its result at a later time
+2. `addListener()` registers a *ChannelFutureListener* to be notified when an operation has completed
+3. **Think of a *ChannelFuture* as a placeholder for the result of an operation that's to be executed in the future**
+
+## 3.2 ChannelHandler and ChannelPipeline
+
+### 3.2.1 Interface ChannelHandler
+
+1. Serve as the container for all application logic that applies to handling inbound and outbound data
+   1. *ChannelHandler* methods are triggered by network events
+
+### 3.2.2 Interface ChannelPipeline
+
+1. Provides a container for a chain of *ChannelHandlers* and defines an API for propagating the flow of inbound and outbound events along the chain
+
+2. When a *Channel* is created, it is automatically assigned its own *ChannelPipeline*
+
+3. *ChannelHandlers* are installed in the *ChannelPipeline* as follows:
+
+   1. A *ChannelInitializer* implementation is registered with a *ServerBootstrap*
+   2. When `ChannelInitializer.initChannel()` is called, the *ChannelInitializer* installs a custom set of *ChannelHandlers* in the pipeline
+   3. The *ChannelInitializer* removes itself from the *ChannelPipeline*
+
+4. for *ChannelHandler*,
+
+   1. **you can think of it as a generic container for any code that process events/data coming and going through the *ChannelPipeline***
+   2. The movement of an event through the pipeline is the work of the *ChannelHandlers* that have been installed during the initialization, or bootstrapping phase of the application
+   3. *ChannelHandler* 是chain形式的，他的执行顺序取决于其被添加时的顺序，我们把其执行的这种有序排列称为*ChannelPipeline *( It is this ordered arrangement of *ChannelHandlers* that we refer to as the *ChannelPipeline* )
+
+5. *ChannelPipeline* with inbound and outbound *ChannelHandlers*
+
+   ![image-20220208110935820](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-pipeline-and-hendler.png)
+
+   1. Netty ensures that data is passed only between handlers of the same directional type(inbound and outbound *ChannelHandler*)
+
+6. `ChannelHandlerContext`
+
+   1. When a *ChannelHandler* is added to a *ChannelPipeline*, it's assigned a *ChannelHandlerContext*, **which represents the binding between a *ChannelHandler* and the *ChannelPipeline***
+   2. An event can be forwarded to the next handler in the current chain by using the `ChannelHandlerContext` that's supplied as an argument to each method
+
+7. Two ways if sending messages in Netty
+
+   1. Write directly to the *Channel*
+      1. causes the message to start from the tail of the *ChannelPipeline*
+   2. Write to a *ChannelHandlerContext* object associated with a *ChannelHandler*
+      1. causes the message to start from the next handler in the *ChannelPipeline*
+
+### 3.2.3 A closer look at ChannelHandlers
+
+1. Netty provides a number of default handler implementations in the form of adapter class. These adapter classes(and their subclasses) forwarding events to the next handler in the chain automatically. So we can override the methods and events we want to specialize
+2. Why adapters?
+   1. they provide default implementations of all the methods defined in the corresponding interface so that  reduce the effort of writing custom *ChannelHandlers* to bare minimum
+
+### 3.2.4 Encoders and decoders
+
+1. network data is always a series of bytes
+
+### 3.2.5 Abstract class SimpleChannelInboundHandler
+
+receives a decoded message and applies business logic to the data, extend this class and override one or more method
+
+## 3.3 Bootstrapping
+
+Netty's bootstrap classes provide containers for the configuration of an application's network layer
+
+1. Comparison of Bootstrap classes
+
+   ![image-20220208141934154](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-comparison-of-bootstrap.png)
+
+   1. *ServerBootstrap* binds to a port, *Bootstrap* connect a remote peer
+   2. BootStrapping a client requires only a single *EventLoopGroup* ; A *ServerBootstrap* requires two(which can be the same instance) 
+
+2. Server with two *EventLoopGroups*
+
+   ![image-20220208142637964](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-server-with-two-eventloopgroup.png)
+
+   1. The first set will contain a single *ServerChannel*  representing the server's own listening socket, bound to a local port
+   2. The second set will contain all of the *Channels* that have been created to handle incoming client connections——one for each connection the server has accepted
+   3. The *EventLoopGroup* associated with the *ServerChannel* assigns an *EventLoop* that is responsible for creating *Channels* for incoming connection requests
+   4. Once connection has been accepted, the second *EventLoopGroup* assigns an *EventLoop* to its *Channel*
+
+## 3.4 Summary
+
+# Chapter4 Transports
+
+1. Network transport, a concept that helps us to **abstract away the underlying mechanics of data transfer**
+2. Netty layers a common API over all its transport implementations
+
+## 4.1 Case study: transport migration
+
+### 4.1.1 Using OIO and NIO without Netty
+
+OIO: blocking, NIO: asynchronous
+
+1. Blocking networking without Netty
+
+   ```java
+   public class PlainOioServer {
+       public void serve(int port) throws Exception{
+           //Bind the server to specified port
+           final ServerSocket socket = new ServerSocket(port);
+           for(;;){
+               //Accept a connection
+               final Socket clientSocket = socket.accept();
+               log.info("Accepted connection from " + clientSocket);
+   
+               //Create a new thread to handle the connection
+               new Thread(new Runnable() {
+                   @SneakyThrows
+                   @Override
+                   public void run() {
+                       //Write message to the connected client
+                       OutputStream out = clientSocket.getOutputStream();
+                       out.write("Hi!\r\n".getBytes(StandardCharsets.UTF_8));
+                       out.flush();
+                       //Close the connection
+                       clientSocket.close();
+                   }
+               }).start();
+           }
+       }
+   }
+   ```
+
+2. Asynchronous networking without Netty
+
+   ```java
+   public class PlainNioServer {
+       public void serve(int port) throws IOException {
+           ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
+           serverSocketChannel.configureBlocking(false);
+           ServerSocket ssocket = serverSocketChannel.socket();
+           InetSocketAddress address = new InetSocketAddress(port);
+           //Bind the server to the selected port
+           ssocket.bind(address);
+           //Open the selector for handling channels
+           Selector selector = Selector.open();
+           //Registers the ServerSocket with the Selector to accept connections
+           serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
+           final ByteBuffer msg = ByteBuffer.wrap("Hi!\r\n".getBytes());
+   
+           for (; ; ) {
+               //Wait for new events to process; blocks until the next incoming event
+               try {
+                   selector.select();
+               } catch (IOException e) {
+                   e.printStackTrace();
+                   break;
+               }
+           }
+           //Obtains all SelectionKey instances tha received events
+           Set<SelectionKey> readyKeys = selector.selectedKeys();
+           Iterator<SelectionKey> iterator = readyKeys.iterator();
+           while (iterator.hasNext()) {
+               SelectionKey key = iterator.next();
+               iterator.remove();
+               //Check if the event is a new connection ready to be accepted
+               if (key.isAcceptable()) {
+                   ServerSocketChannel server = (ServerSocketChannel) key.channel();
+                   SocketChannel client = server.accept();
+                   client.configureBlocking(false);
+                   //Accepts client and registers it with the selector
+                   client.register(selector, SelectionKey.OP_WRITE | SelectionKey.OP_READ, msg.duplicate());
+                   log.info("Accepted connection from " + client);
+               }
+               //Check if the socket is ready for writing data
+               if (key.isWritable()) {
+                   SocketChannel client = (SocketChannel) key.channel();
+                   ByteBuffer buffer = (ByteBuffer) key.attachment();
+                   while (buffer.hasRemaining()) {
+                       //Write data to the connected client
+                       if (client.write(buffer) == 0) {
+                           break;
+                       }
+                   }
+                   //Close the connection
+                   client.close();
+               }
+           }
+       }
+   }
+   ```
+
+3. Blocking networking with Netty
+
+   ```java
+   public class NettyOioServer {
+       public void serve(int port) throws Exception{
+           ByteBuf buf = Unpooled.unreleasableBuffer(Unpooled.copiedBuffer("Hi!\r\n", StandardCharsets.UTF_8));
+           EventLoopGroup group = new OioEventLoopGroup();
+           //Create a ServerBootstrap
+           ServerBootstrap b = new ServerBootstrap();
+           b.group(group)
+                   //Use OioEventLoopGroup to allow blocking mode
+                   .channel(OioServerSocketChannel.class)
+                   .localAddress(new InetSocketAddress(port))
+                   //Specifies ChannelInitializer that will be called for each accepted connection
+                   .childHandler(new ChannelInitializer<SocketChannel>() {
+                       @Override
+                       protected void initChannel(SocketChannel socketChannel) throws Exception {
+                           //Add a ChannelInboundHandlerAdapter to intercept handler events
+                           socketChannel.pipeline().addLast(new ChannelInboundHandlerAdapter(){
+                               @Override
+                               public void channelActive(ChannelHandlerContext ctx) throws Exception {
+                                   ctx.writeAndFlush(buf.duplicate())
+                                           .addListener(ChannelFutureListener.CLOSE);
+                               }
+                           });
+                       }
+                   });
+           //Bind server to accept connections
+           ChannelFuture f = b.bind().sync();
+           f.channel().closeFuture().sync();
+           //Release all resources
+           group.shutdownGracefully().sync();
+       }
+   }
+   ```
+
+4. Asynchronous networking with Netty
+
+   ```java
+   public class NettyNioServer {
+       public void serve(int port)throws Exception{
+           ByteBuf buf = Unpooled.unreleasableBuffer(Unpooled.copiedBuffer("Hi!\r\n", StandardCharsets.UTF_8));
+           //Use NioEventLoopGroup for non-blocking mode
+           EventLoopGroup group = new NioEventLoopGroup();
+           //Create ServerBootstrap
+           ServerBootstrap b = new ServerBootstrap();
+           b.group(group)
+                   .channel(NioServerSocketChannel.class)
+                   .localAddress(new InetSocketAddress(port))
+                   //Specifies ChannelInitializer to be called for each accepted connection
+                   .childHandler(new ChannelInitializer<SocketChannel>() {
+                       @Override
+                       protected void initChannel(SocketChannel socketChannel) throws Exception {
+                           //Add ChannelInboundHandlerAdapter to receive events and process them
+                           socketChannel.pipeline().addLast(new ChannelInboundHandlerAdapter(){
+                               //Write message to client and add ChannelFutureListener to close the connection once the message is written
+                               @Override
+                               public void channelActive(ChannelHandlerContext ctx) throws Exception {
+                                   ctx.writeAndFlush(buf.duplicate())
+                                           .addListener(ChannelFutureListener.CLOSE);
+                               }
+                           });
+                       }
+                   });
+           //Bind server to accept connections
+           ChannelFuture f = b.bind().sync();
+           f.channel().closeFuture().sync();
+           //Release all resources
+           group.shutdownGracefully().sync();
+       }
+   }
+   ```
+
+## 4.2 Transport API
+
+1. At the heart of the transport API is interface *Channel*
+
+2. The most important *Channel* method
+
+   ![image-20220208161825432](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-channel-method.png)
+
+3. Netty's *Channel* implementations are thread-safe
+
+## 4.3 Included transports
+
+![image-20220208162810213](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-provided-transports.png)
+
+### 4.3.1 NIO——non-blocking I/O
+
+1. The basic concept behind the selector is to serve as a registry where you request to be notified when the state of a *Channel* changes
+
+2. Internal details of NIO are hidden by the user-level API common to all of Netty's transport implementations
+
+   ![image-20220208163515497](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-selecting-and-processing-state-change.png)
+
+### 4.3.2 Epoll—native non-blocking transport for linux
+
+### 4.3.3 OIO—old blocking I/O
+
+1. How Netty support OIO
+
+   1. Netty makes use of the SO_TIMEOUT Socket flag, which specifies the maximum number of milliseconds to wait for an I/O operation to complete.
+   2. If the operation fails to complete within the specified interval, a `SocketTimeoutException` is thrown
+   3. Netty catches this exception and continues the processing loop. On the next EventLoop run, it will try again
+   4. This is the only way an asynchronous framework like Netty can support OIO
+
+2. OIO processing logic
+
+   ![image-20220208165345692](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-oio-processing-logic.png)
+
+### 4.3.4 Local transport for communication within a JVM
 
