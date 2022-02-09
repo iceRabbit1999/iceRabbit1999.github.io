@@ -36,6 +36,7 @@
 32. accommodate：容纳
 32. arrangement：安排
 32. adequately：充分的
+32. aggregated：聚合的
 
 # B
 
@@ -139,6 +140,8 @@
 33. delve：钻研
 33. dedicated：专用
 33. derivation：推导
+33. drawback：缺陷，弊端，退税
+33. discarded：丢弃
 
 # E
 
@@ -181,6 +184,9 @@
 34. evoke：唤起
 34. embedded：嵌入式
 34. entails：包含
+34. exceed：超过
+34. exhausted：精疲力尽
+34. envision：预见
 
 # F
 
@@ -248,6 +254,7 @@
 38. invocation：调用
 39. identical：完全相同的
 36. intermediate：中间的
+36. indices：指数，索引
 
 
 
@@ -306,6 +313,7 @@
 7. overwhelming：铺天盖地
 8. overhead of context-switchin：上下文切换的开销
 9. orientation：方向
+9. optimizes：优化
 
 # P
 
@@ -347,6 +355,8 @@
 1. philosophical：哲学的
 1. propagating：传播
 1. Plain：平凡的
+1. penalties：处罚
+1. partitioned：分区的
 
 # Q
 
@@ -437,6 +447,8 @@
 8. utilization：利用率
 9. underestimate：低估
 9. uncontaminated：未受污染
+9. utility：公共事业
+9. underpinnings：基础
 
 # V
 

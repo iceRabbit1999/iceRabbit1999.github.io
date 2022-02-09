@@ -689,3 +689,289 @@ OIO: blocking, NIO: asynchronous
 
 ### 4.3.4 Local transport for communication within a JVM
 
+### 4.3.5 Embedded transpot
+
+## 4.4 Transport use cases
+
+## 4.5 Summary
+
+# Chapter5 ByteBuf
+
+*ByteBuf* : Netty's alternative to *ByteBuffer*
+
+## 5.1 The ByteBuf API
+
+Netty's API for data handling:
+
+1. abstract class ByteBuf
+2. interface ByteBufHolder
+
+## 5.2 Class ByteBuf—Netty's data container
+
+### 5.2.1 How it works
+
+![image-20220209095129538](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-bytebuf-layout.png)
+
+*ByteBuf* maintains two distinct indices: one for reading and one for writing
+
+An array of bytes with distinct indices to control read and write access
+
+### 5.2.2 ByteBuf usage patterns
+
+1. HEAP BUFFERS
+
+   1. stores the data in the heap space of JVM
+   2. fast allocation and dealloction in situations where poo;ing isn't use
+   3. well suited to cases where you have to handle legacy data
+   4. this pattern is similar to uses of the JDK's ByteBuffer
+
+   ```java
+   ByteBuf heapBuf = ...;
+   if(heapBuf.hasArray()){
+       byte[] array = heapBuf.array();
+       int offset = heapBuf.arrayOffset() + heapBuf.readerIndex();
+       int length = heapBuf.readableBytes();
+       handleArray(array,offset,length);
+   }
+   ```
+
+2. Direct Buffers
+
+   1. The contents of direct buffers will reside outside of the normal garbage-collected heap
+
+   ```java
+   ByteBuf directBuf = ...;
+   if(directBuf.hasArray()){
+       int length = directBuf.readableBytes();
+       byte[] array = new byte[length];
+       directBuf.getBytes(directBuf.readerIndex(),array))
+       handleArray(array,0,length);
+   }
+   ```
+
+3. Composite Buffers
+
+   1. Add and delete ByteBuf instances as needed
+
+   ![image-20220209102113111](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-compositebuf.png)
+
+   1. 例如，当只需要改写头时，可以共用相同的body，避免了不必要的资源消耗
+   2. CompositeByteBuf may not allow access to a backing array, so accessing the data in a CompositeByteBuf resembles the direct buffer pattern
+
+## 5.3 Byte-level operations
+
+### 5.3.1 Random access Indexing
+
+```java
+//简单的遍历
+ByteBuf buffer = ...;
+for(int i=0;i<buffer.capcity() - 1; i++){
+    byte b = buffer.getByte(i);
+    log.info(b);
+}
+```
+
+accessing the data using one of the methods that takes an index argument doesn't alter the value of either readerIndex or writerIndex
+
+### 5.3.2 Sequential aceess indexing
+
+how a *ByteBuf* is partitioned by its two indices into three areas
+
+![image-20220209104036569](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-bytebuf-internal-segmentation.png)
+
+### 5.3.3 Discardable bytes
+
+after *discardedBytes()*
+
+![image-20220209143351864](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netyy-bytebuf-after-discardedbytes.png)
+
+this will cause meomry copying
+
+### 5.3.4 Readable bytes
+
+read all data
+
+```java
+ByteBuf b = ...;
+while(b.isReadable()){
+    log.info(b.readByte());
+}
+```
+
+### 5.3.5 Writable bytes
+
+write data
+
+```java
+//Fills the writable bytes of a buffer with random integers
+ByteBuf b = ...;
+while(b.writableBytes() >= 4){
+    b.writeInt(random.nextInt());
+}
+```
+
+### 5.3.6 Index management
+
+`markReaderIndex(), markWriterIndex(), resetReaderIndex(), resetWriterIndex(), clear()`
+
+### 5.3.7 Search operations
+
+Using ByteBufProcessor to find \r
+
+```java
+ByteBuf b =...;
+int index = b.forEachByte(ByteBufProcessor.FIND_CR);
+```
+
+### 5.3.8 Derived buffers
+
+1. A derived buffer provides a view of a *ByteBuf* that represents its contents in a specialized way
+
+2. If you modify its contents you are modifying the source instance as well
+
+3. Slice a *ByteBuf*
+
+   ```java
+   Charset utf8 = Charset.forName("UTF-8");
+   //Creating a ByteBuf, which holds bytes for given string
+   ByteBuf buf = Unpooled.copiedBuffer("Netty in Action rocks!",utf8);
+   //Creating a new slice of ByteBuf starting at index 0 and ending at index 4
+   ByteBuf sliced = buf.slie(0,14);
+   //Prient Netty in Action rocks!
+   log.info(sliced.toString(utf8));
+   //Update the byte at index 0
+   buf.setByte(0,(byte) 'J');
+   //Successd because the data is shared—modifications made to one will be visible in the other
+   assert buf.getByte(0) == sliced.getByte(0);
+   ```
+
+   
+
+4. Copying a *ByteBuf*
+
+   ```java
+   Charset utf8 = Charset.forName("UTF-8");
+   ByteBuf buf = Unpooled.copiedBuffer("Netty in Action rocks!",utf8);
+   ByteBuf copy = buf.copy(0,14);
+   log.info(sliced.toString(utf8));
+   buf.setByte(0,(byte) 'J');
+   assert buf.getByte(0) != sliced.getByte(0);
+   ```
+
+5. Whenever possible, use `slice()` to avoid the cost of copying memory
+
+### 5.3.9 Read/Write operations
+
+1. Most frequently used `get(), set()` method (get/set operations that start at a given index and leave it unchanged)
+
+   1. ![image-20220209151227915](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-get-operation.png)
+
+   2. ![image-20220209151254470](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty0set-operation.png)
+
+   3. `get()` and `set()` usage
+
+      ```java
+      Charset utf8 = Charset.forName("UTF-8");
+      ByteBuf buf = Unpooled.copiedBuffer("Netty in Action rocks!", utf8);
+      log.info((Byte)buf.getByte(0));
+      int readerIndex = buf.readerIndex();
+      int writerIndex = buf.writerIndex();
+      buf.setByte(0, (Byte) 'B');
+      log.info((Char) buf.getByte(0));
+      //Succeed because these operations don't modify the indices
+      assert readerIndex == buf.readerIndex();
+      assert writerIndex == buf.writerIndex();
+      ```
+
+      
+
+2. Most frequently used `write(), read()` method (write/read operations that start at a given index and adjust it by the number of bytes accessed)
+
+   1. ![image-20220209151944089](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-read-operation.png)
+
+      ![image-20220209152010547](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-read-operation-continued.png)
+
+   2. ![image-20220209152408798](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-write-operation.png)
+
+   3. `read()` and `write()` operations on the *ByteBuf*
+
+      ```java
+      Charset utf8 = Charset.forName("UTF-8");
+      ByteBuf buf = Unpooled.copiedBuffer("Netty in Action rocks!", utf8);
+      log.info((Byte)buf.getByte(0));
+      int readerIndex = buf.readerIndex();
+      int writerIndex = buf.writerIndex();
+      buf.writeByte(0, (Byte) '?');
+      log.info((Char) buf.getByte(0));
+      
+      assert readerIndex == buf.readerIndex();
+      assert writerIndex != buf.writerIndex();
+      ```
+
+      
+
+### 5.3.10 More opeartions
+
+![image-20220209153112485](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-other-operation.png)
+
+## 5.4 Interface ByteBufHolder
+
+![image-20220209153423922](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-bytebufferholder-operation.png)
+
+## 5.5 ByteBuf allocation
+
+### 5.5.1 On-demand: Interface ByteBufAllocator
+
+1. To reduce the overhead of the allocating and deallocating memory, Netty implements pooling with the interface *ByteBufAllocator*, which can be used to allocate instances of any of the *ByteBuf* varieties
+2. Netty provides tow implementations of *ByteBufAllocator* : *PooledByteBufAllocator* and *UnpooledByteBufAllocator* 
+3. Netty uses the *PooledByteBufAllocator* by default
+
+### 5.5.2 Unpooled buffers
+
+1. Netty provides a utility class called *Unpolled*, which provides a static helper methods to create unpooled *ByteBuf*  instances
+2. ![image-20220209155720590](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-unpolled-method.png)
+
+### 5.5.3 Class ByteBufUtil
+
+1. *ByteBufUtil* provides static helper methods for manipulating a *ByteBuf*
+
+## 5.6 Reference counting
+
+1. Reference counting is a technique for optimizing memory use and performance by releasing the resources held by an object when it is no longer referenced by other objects
+2. Netty introduced reference counting in version 4 for *ByteBuf* and *ByteBufHolder*
+
+## 5.7 Summary
+
+1. The use of distinct read and write indices to control data access
+2. Different approaches to memory usage—backing arrays and direct buffers
+3. The aggregate view of multiple ByteBufs using CompositeByteBuf
+4. Data-access methods: searching, slicing, and copying
+5. The read, write, get, and set APIs
+6. ByteBufAllocator pooling and reference counting
+
+# Chapter6 ChannelHandler and ChannelPipeline
+
+## 6.1 The ChannelHandler family
+
+### 6.1.1 The Channel lifecycle
+
+![image-20220209163500747](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-channel-state-model.png)
+
+As these state changes occur, corresponding events are generated. These are forwarded to *ChannelHandler* in the *ChannelPipeline*, which can then act on them
+
+### 6.1.2 The ChannelHandler lifecycle
+
+1. handlerAdded
+2. handlerRemoved
+3. exceptionCaught
+
+### 6.1.3 Interface ChannelInboundHandler
+
+![image-20220209164620229](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-ChannelInboundHandler-method.png)
+
+When a *ChannelInboundHandler* implementation overrides `channelRead()` , it is responsible for explicitly releasing the memory associated with pooled *ByteBuf* instances. You can use `ReferenceCountUtil.release()` to do that. A simple alternative is to use *SimpleChannelInboundHandler*, it releases resources automatically
+
+### 6.1.4 Interface ChannelOutboundHandler
+
+
+
