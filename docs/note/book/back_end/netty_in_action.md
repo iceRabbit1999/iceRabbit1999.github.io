@@ -973,5 +973,372 @@ When a *ChannelInboundHandler* implementation overrides `channelRead()` , it is 
 
 ### 6.1.4 Interface ChannelOutboundHandler
 
+1. A powerful capability of *ChannelOutboundHandler* is to defer an operation or event on demand, which allows for sophisticated approaches to request handling
+2. Most of the methosd in *ChannelOutboundHandler* take a *ChannelPromise* argument to be notified when the operation completes. *ChannelPromise* is a subinterface of *ChannelFuture* that defines the writable methods
 
+### 6.1.5 ChannelHadnler adapters
+
+1. *ChannelInboundHandlerAdapter* and *ChannelOutboundHandlerAdapter* provide basic implementataions of *ChannelHandler* respectively
+
+2. hierarchy
+
+   ![image-20220210094442584](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-channelHandlerAdapter-hierarchy.png)
+
+### 6.1.6 Resource management
+
+1. It's important to adjust the reference count after you have finished using a *ByteBuf* 
+
+2. Netty provides class *ResourceLeakDector*, which will sample 1% of your application's buffer allocations to check for memory leaks
+
+3. Leak-detection levels
+
+   ![image-20220210095830590](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-leak-detection-level.png)
+
+## 6.2 Interface ChannelPipeline
+
+1. Think of a *ChannelPipeline* as a chain of *ChannelHandler* instances that intercept the inbound and outbound events that flow through a *Channel*
+2. Every new *Channel* that's created is assigned a new *ChannelPipeline*. This association is permanent
+3. This is a fixed operation in Netty's component lifecycle and requeires no action on the part of the developer
+4. *ChannelHandlerContext*
+   1. A *ChannelHandlerContext* enables a *ChannelHandler* to interact with its *ChannelPipeline* and with other handlers
+   2. A handler can notify the next *ChannelHandler* in the *ChannelPipeline* and even dynamically modify the *ChannelPipeline* it belons to
+5. Netty always identifies the inbound entry to the *ChannelPipeline* as the beginning and the outbound entry as the end
+6. A handler might implement both *ChannelInboundHandler* and *ChannelOutboundHandler*
+
+### 6.2.1 Modifying a ChannelPipeline
+
+1. A *ChannelHandler* can modify the layout of a *ChannelPipeline* in real time by adding, removing, or replacing other *ChannelHandler*. It's can remove itself from the *ChannelPipeline* as well
+2. ![image-20220210104238958](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-modifying-channelPipeline.png)
+
+### 6.2.2 Firing events
+
+In summary:
+
+1. A *ChannelPipeline* holds the *ChannelHandlers* associated with a *Channel*
+2. A *ChannelPipeline* can modified dynamically by adding and removing *ChannelHandlers* as needed
+3. *ChannelPipeline* has a rich API for invoking actions in response to inbound and outbound events
+
+## 6.3 Interface ChannelHandlerContext
+
+1. A *ChannelHandlerContext* repsents an association between a *ChannelHandler* and a *ChannelPipeline*
+2. Is created whenever a *ChannelHandler* is added to a *ChannelPipeline* 
+3. The primary function of a *ChaneelHandlerContext* is to manage the interaction  of its associated *ChannelHandler* with others in the same *ChannelPipeline*
+4. The same methods called on a *ChannelHandlerContext* will start at the current associated *ChannelHandler* and propagate only to the next *ChannelHandler* in the pipeline that is capable of handling the event
+5. When using the *ChannelHandlerContext* API
+   1. The *ChannelHandlerContext* associated with a *ChannelHandler* never changes. so it's safe to cache a reference to it
+   2. *ChannelHandlerContext* methods involve a shorter event flow than do the identically named methods available on other classes
+
+### 6.3.1 Using ChannelHandlerContext
+
+1. Relationships among *ChannelHandlerContext*, *Channel*, *ChannelPipeline*
+
+   ![image-20220210112426935](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-relationship-among-channel-*.png)
+
+2. `channel.write` and `pipeline.write`
+
+   1. ![image-20220210113949446](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-event-propagate.png)
+   2. 两个write方法的总体流程是一样的，但实现形式有不同，channel.write应该是红线
+
+3. Why propagate an event starting at a specific point in the *ChannelPipleine*
+
+   1. To reduce the overhead of passing the event through *ChannelHandlers* that are not interested in it
+   2. To prevent processing of the event by handlers that would be intersted in the event
+
+4. `channelHandlerContext.write`
+
+   1. ![image-20220210115512090](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-channelHandlerContext-write-flow.png)
+
+### 6.3.2 Advanced uses of ChannelHandler and ChannelHandlerContext
+
+1. Caching a *ChannelHandlerContext*
+
+   ```java
+   public class WriteHandler extends ChannelHandlerAdapter{
+       privite ChannelHandlerContext ctx;
+       
+       @Override
+       public void handlerAdded(ChannelHandlerContext ctx){
+           //Store reference to ChannelHandlerContext for later use
+           this.ctx = ctx;
+       }
+       
+       //Send message using previously stored ChannelHandlerContext
+       public void send(String msg){
+           ctx.writeAndFlush(msg);
+       }
+   }
+   ```
+
+   
+
+2. A sharable *ChannelHandler*
+
+   1. `@Sharable`: use it only if you're certaion that your *ChannelHandler* is thread-safe(doesn't hold any state)
+
+3. Why share a *ChannelHandler*
+
+   1. A common reason is to gather statistics across mutiple *Channels*
+
+## 6.4 Exception handling
+
+### 6.4.1 Handling inbound exceptioons
+
+1. just override `public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception`
+2. The exception will continue to flow in the inbound direction, so the *ChannelInboundHandler* that implements the method `exceptionCaught` usually olaced last in the *ChannelPipeline*. This ensures all inbound exceptions are alwayshandled, wherever in the *ChannelPipeline* they may occur
+3. Summerarize
+   1. The default implementation of `ChannelInboundHandler.exceptionCaught()` forwards the current exceptino to the next handler in the pipeline
+   2. If an exception reaches the end of the pipline, it's logged ass unhandled
+   3. To define custom handling,  you override exceptionCaught()
+
+### 6.4.2 Handling outbound exceptions
+
+1. Notification mechanisms:
+
+   1. Every outbound operation returns a *ChannelFuture*. The *ChannelFutureListener* registered with a *ChannelFuture* are notified of success or error when the operation completes
+   2. Almost all methods of *ChannelOutboundHandler* are paased an instance of *ChannelPromise* (a subclass of *ChannelFuture*, can also be assigned listeners for asychrounous notification)
+
+2. Adding a *ChannelFutureListener* to a *ChannelFuture*
+
+   ```java
+   ChannelFuture future = channel.write(msg);
+   future.addListener(new ChannelFutureListener() {
+       @Override
+       public void operationComplete(ChannelFuture f){
+           if(!f.isSuccess()){
+               f.cause(.printStackTrace());
+               f.channel().close();
+           }
+       }
+   })
+   ```
+
+   
+
+3. Adding a *ChannelFutureListener* ti a *ChannelPromise* 
+
+   ```java
+   public class OutboundExceptionHandler extends ChannelOutboundHandlerAdapter {
+       @Override
+       public void write (ChannelHandlerContext ctx, Object msg, ChannelPromise promise){
+           promise.addListener(new ChannelFutureListener() {
+               @Override
+               public void operationComplete(ChannelFuture f){
+                   if(!f.isSuccess()){
+                       f.cause().printStackTrace();
+                       f.channel().close();
+                   }
+               }
+           })
+       }
+   }
+   ```
+
+   
+
+# Chapter7 EventLoop and threading model
+
+1. Simply stated, a *threading model* specifies key aspects of thread management in the context of an OS, programming, language, framework, or a application
+2. JUC—java.util.concurrent --> 《Java Concurrency in Pratice》by Brian Goetz, et al
+
+## 7.1 Threading model overview
+
+1. The basic thread pooling pattern can be described as:
+   1. A *Thread* is selected from the pool's free list and assigned to run a submitted task
+   2. When the task is complete, the *Thread* is returned to the list and becomes available for reuse 
+   3. ![image-20220210145206209](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-executor-execution-logic.png)
+
+## 7.2 Interface EventLoop
+
+1. Exceuting tasks In an event loop
+
+   ```java
+   while(!terminated){
+       //Block until there are events that are ready to run
+       List<Runnable> readyEvents = blockUtilEventReady();
+       //Loops over and runs all the events
+       for(Runnable event : readyEvents){
+           event.run();
+       }
+   }
+   ```
+
+2. Netty's *EventLoop* is part of a collaborative design that employs two fundamental APIs: concurrency and networking
+
+   ![image-20220210150046972](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-eventloop-hierarchy.png)
+
+   1. In this model, an *EventLoop* is powered by exactly one *Thread* that never changes and tasks can be submitted directly to *EventLoop* implementations for immediate or scheduled execution
+   2. Multiple *EventLoop* may becreatred in order to optimize resource use
+   3. A single *EventLoop* may be assigned to service multiple *Channels*
+
+3. Events and tasks are executed in FIFO—first-in-first-out order
+
+### 7.2.1 I/O and event handling in Netty 4
+
+1. **In Netty 4 all I/O operations and events are handled by the *Thread* that has been assigned to the *EventLoop***, This differs from the model that was used in Netty 3
+
+### 7.2.2 I/O operations in Netty 3
+
+1. In short, it wasn't possible to gurantee that multiple threads wouldn't try to access an outbound event at the same time
+2. Netty 4 resolves these problems by handling everything that occurs in a given *EventLoop* in the same thread
+
+## 7.3 Task scheduling
+
+### 7.3.1 JDK scheduling API
+
+1. Scheduling a task with a ScheduledExecutorService
+
+   ```?
+   //Create a ScheduledExecutorService with a pool of 10 threads
+   ScheduledExecutorService executor = Executors.newScheduledThreadPool(10);
+   
+   //Create a Runnable to schedul for later execution
+   ScheduledFuture<?> future = executor.schedule(new Runnable(){
+   	@Override
+   	public void run(){
+   		log.info("60 Seconds later");
+   	}
+   },60,TimUtil.SECONDS);
+   ...
+   executor.shutdown();
+   ```
+
+### 7.3.2 Scheduling tasks using EventLoop
+
+1. Scheduling a task with *EventLoop*
+
+   ```java
+   Channel ch = ...;
+   ScheduledFuture<?> future = ch.eventLoop().schedule(
+   	new Runabble(){
+           @Override
+           public void run(){
+               log.info("60 seconds later");
+           }
+       }, 60, TimeUtil.SECONDS);
+   ```
+
+   
+
+2. Scheduling a recurring task with *EventLoop*
+
+   ```java
+   Channel ch = ...;
+   ScheduledFuture<?> future = ch.eventLoop().scheduleAtFixedRate(
+   	new Runabble(){
+           @Override
+           public void run(){
+               log.info("60 seconds later");
+           }
+       }, 60, 60, TimeUtil.SECONDS);
+   ```
+
+3. Cancelling a task using *ScheduleFuture*
+
+   ```java
+   ScheduledFuture<?> future = ch.eventLoop().scheduleAtFixedRate(...);
+   
+   boolean mayInterruptIfRunning = false;
+   future.cancel(mayInterruptIfRunning);
+   ```
+
+## 7.4 Implementation details
+
+### 7.4.1 Thread management
+
+1. The superior performance of Netty's threading model hinges on determining the identity of the currently executing *Thread*
+2. that is, whether or not it is the one assigned to the current *Channel* and its *EventLoop* 
+   1. If the calling *Thread* is that of the *EventLoop*, the code block in question is executed
+   2. Otherwise, the *EventLoop* schedules a task for later execution and puts it in an internal queue
+   3. When the *EventLoop* next processes its events, it will execute those in the queue
+3. Each *EventLoop* has its own task queue, independent of that of any other *EventLoop* 
+   1. ![image-20220210154613816](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-eventloop-excution-logic.png)
+4. Never put a long-running task in the execution queue, if must, we advise the use of the dedicated *EventExecutor*
+
+### 7.4.2 EventLoop/thread allocation
+
+1. Asynchronous transports
+
+   ![image-20220210155449336](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-eventloop-for-nio-transpot.png)
+
+2. Blocking transports
+
+   ![image-20220210155754057](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-eventloop-allocation-of-oio.png)
+
+
+
+## 7.5 Summary
+
+
+
+# Chapter 8 Bootstrapping
+
+1. Simply stated, *Bootstrapping* an application is the process of configuring it to run—though the details of the process may not be simple as its definition, especially in network applications
+2. Netty handles bootstrapping in a way that insulates your application, whether client or server, from the network layer
+
+## 8.1 Bootstrap classes
+
+1. Namely, a server devotes a parent channel to accepting connections from clients and creating child channels for conversing with them, whereas a client will most likely require only a single, non-parent channel for all network interactions
+
+## 8.2 Bootstrapping clients and connectionsless protocols
+
+### 8.2.1 Bootstrapping a client
+
+1. ![image-20220210162239034](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-bootstrapping-process.png)
+
+2. Bootstrapping a client
+
+   ```java
+   public class Bootstrapping {
+       public static void main(String[] args) {
+           EventLoopGroup group = new NioEventLoopGroup();
+           Bootstrap bootstrap = new Bootstrap();
+   
+           bootstrap.group(group)
+                   .channel(NioServerSocketChannel.class)
+                   .handler(new SimpleChannelInboundHandler<ByteBuf>() {
+                       @Override
+                       protected void channelRead0(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
+                           log.info("Received data");
+                       }
+                   });
+   
+           ChannelFuture future = bootstrap.connect(new InetSocketAddress("127.0.0.1", 80));
+           future.addListener(new ChannelFutureListener() {
+               @Override
+               public void operationComplete(ChannelFuture channelFuture) throws Exception {
+                   if(channelFuture.isSuccess()){
+                       log.info("Connection established");
+                   }else{
+                       log.info("Connection attempt failed");
+                       channelFuture.cause().printStackTrace();
+                   }
+               }
+           });
+       }
+   }
+   
+   ```
+
+### 8.2.2 Channel and EventLoopGroup compatibility
+
+Must call the following methods to set up the required components
+
+1. `group()`
+2. `channel()` or `channelFactory()`
+3. `handler()`
+
+## 8.3 Bootstrapping servers
+
+### 8.3.1 The ServerBootstrap class
+
+### 8.3.2 Bootstrapping a server
+
+1. ![image-20220210164655226](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-serverbootstrapping.png)
+
+## 8.4 Bootstrapping clients from a Channel
+
+![image-20220210165135300](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-eventloop-shared-between-channels.png)
+
+```java
+```
 

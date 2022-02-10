@@ -37,6 +37,8 @@
 32. arrangement：安排
 32. adequately：充分的
 32. aggregated：聚合的
+32. attach：连接，附上
+32. adoption：采用
 
 # B
 
@@ -99,6 +101,8 @@
 49. constraints：约束
 49. complementary：补充
 49. compact:袖珍的，紧凑的
+49. commonplace：平凡
+49. compatibility：兼容性
 
 # D
 
@@ -142,6 +146,9 @@
 33. derivation：推导
 33. drawback：缺陷，弊端，退税
 33. discarded：丢弃
+33. diagnosing：诊断
+33. detach：分离
+33. enclosing：封闭
 
 # E
 
@@ -187,6 +194,7 @@
 34. exceed：超过
 34. exhausted：精疲力尽
 34. envision：预见
+34. elapsed：过去
 
 # F
 
@@ -211,6 +219,7 @@
 3. Hence：因此
 4. hierarchies：等级制度
 5. hats off to yo：向你脱帽致敬
+5. hinges：铰链
 
 # I
 
@@ -255,6 +264,9 @@
 39. identical：完全相同的
 36. intermediate：中间的
 36. indices：指数，索引
+36. immutable：不可变
+36. implicitly：含蓄的
+36. insulates：隔离
 
 
 
@@ -314,6 +326,8 @@
 8. overhead of context-switchin：上下文切换的开销
 9. orientation：方向
 9. optimizes：优化
+9. odds：赔率
+9. Occasionally：偶尔
 
 # P
 
@@ -357,6 +371,8 @@
 1. Plain：平凡的
 1. penalties：处罚
 1. partitioned：分区的
+1. potential：潜在的
+1. periodic：周期性的
 
 # Q
 
@@ -388,6 +404,7 @@
 20. relevance：关联
 20. reap：收割
 20. resembling：类似于
+20. recurring：再次发生的
 
 # S
 
@@ -424,6 +441,11 @@
 31. stimulated：刺激
 31. symbiotic：共生
 31. semantics:语义
+31. sophisticated：复杂的
+31. suspended：暂停
+31. substantial：重大的
+31. snippet：片段
+31. Subsequently：随后
 
 # T
 
@@ -434,6 +456,8 @@
 5. thorny：棘手的
 6. trivial：不重要的
 7. throughput：吞吐量
+7. trade-offs：权衡取舍
+7. tantamount：无异于
 
 # U
 
@@ -461,6 +485,7 @@
 7. ultimately：最终的
 8. vibrant:充满活力
 8. volume:体积
+8. vaguely：依稀
 
 # W
 
