@@ -103,52 +103,96 @@
 49. compact:袖珍的，紧凑的
 49. commonplace：平凡
 49. compatibility：兼容性
+49. culprit：罪魁祸首
+49. candidates：考生，候选人
 
 # D
 
 
 
 1. disambiguate 消除歧义
+
 2. disbursing：发放
+
 3. dam：水坝
+
 4. distinction：区别
+
 5. delimiting：界定
+
 6. denote：表示
+
 7. dictates：决定了
+
 8. derive：导出
+
 9. declarative：声明性的
+
 10. demonstrates：示范
+
 11. Delighted:喜悦的是
+
 12. disturbing：令人不安的
+
 13. decomposition：分解
+
 14. deferred：递延
+
 15. denomination：派别
+
 16. degenerate：堕落，退化
+
 17. desirable：理想的
+
 18. divisor:除数
+
 19. definite integral：定积分
+
 20. denominator：分母
+
 21. distinguish：辨别
+
 22. diagonal：对角线
+
 23. delimit：划定
+
 24. dispense：分发，分配
-24. Deallocates：取消分配
+
+25. Deallocates：取消分配
+
 26. datum: 数据点
+
 27. dispatching：派遣
+
 28. dictated：支配
+
 29. decoupled：解耦
+
 30. doable：可行的
+
 31. derived：衍生的
+
 32. dormant：休眠
+
 33. distributed：分布式
-33. delve：钻研
-33. dedicated：专用
-33. derivation：推导
-33. drawback：缺陷，弊端，退税
-33. discarded：丢弃
-33. diagnosing：诊断
-33. detach：分离
-33. enclosing：封闭
+
+34. delve：钻研
+
+35. dedicated：专用
+
+36. derivation：推导
+
+37. drawback：缺陷，弊端，退税
+
+38. discarded：丢弃
+
+39. diagnosing：诊断
+
+40. detach：分离
+
+41. dictate：听写，命令
+
+    
 
 # E
 
@@ -195,6 +239,8 @@
 34. exhausted：精疲力尽
 34. envision：预见
 34. elapsed：过去
+34. enclosing：封闭
+34. excessive：过多的
 
 # F
 
@@ -203,6 +249,7 @@
 3. fraction：分数
 4. façade：正面
 5. former：前者
+5. facilitate：促进
 
 # G
 
@@ -220,6 +267,7 @@
 4. hierarchies：等级制度
 5. hats off to yo：向你脱帽致敬
 5. hinges：铰链
+5. harness：马具
 
 # I
 
@@ -302,6 +350,7 @@
 8. minimalist:极简主义
 10. moderate：中等的
 10. migration：迁移
+10. malformed：畸形，异常
 
 # N
 
@@ -373,6 +422,7 @@
 1. partitioned：分区的
 1. potential：潜在的
 1. periodic：周期性的
+1. proprietary：所有权
 
 # Q
 
@@ -458,6 +508,9 @@
 7. throughput：吞吐量
 7. trade-offs：权衡取舍
 7. tantamount：无异于
+7. tedious：乏味
+7. thoroughly：彻底
+7. twist：扭转
 
 # U
 
@@ -473,6 +526,7 @@
 9. uncontaminated：未受污染
 9. utility：公共事业
 9. underpinnings：基础
+9. unwieldy：笨重
 
 # V
 

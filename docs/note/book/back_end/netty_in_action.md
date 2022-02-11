@@ -1,6 +1,8 @@
 # *Netty in Action*
 
-# Chapter1 Netty concepts and architecture
+# Part 1 Netty concepts and architecture
+
+# Chapter1 Netty—asynchronous and event driven
 
 ## 1.1 Networking in Java
 
@@ -392,7 +394,7 @@ Netty's networking abstraction:
    9. eliminate synchronous
       1. 对每一个给定的Channel来说，所有的I/O操作都由一个相同的线程执行
 
-###3.1.3 Interface ChannelFuture
+### 3.1.3 Interface ChannelFuture
 
 1. Netty is asynchronous, so we need a way to determine its result at a later time
 2. `addListener()` registers a *ChannelFutureListener* to be notified when an operation has completed
@@ -1340,5 +1342,172 @@ Must call the following methods to set up the required components
 ![image-20220210165135300](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-eventloop-shared-between-channels.png)
 
 ```java
+public class Bootstrapping2 {
+    public static void main(String[] args) {
+        ServerBootstrap serverBootstrap = new ServerBootstrap();
+        //Set the EventLoopGroups that provide EventLoops for processing Channel events
+        serverBootstrap.group(new NioEventLoopGroup(), new NioEventLoopGroup())
+                .channel(NioServerSocketChannel.class)
+                .childHandler(new SimpleChannelInboundHandler<ByteBuf>() {
+                    @Override
+                    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+                        Bootstrap bootstrap = new Bootstrap();
+                        bootstrap.channel(NioSocketChannel.class)
+                                .handler(new SimpleChannelInboundHandler<ByteBuf>() {
+                                    @Override
+                                    protected void channelRead0(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
+                                        log.info("Received data");
+                                    }
+                                });
+
+                        bootstrap.group(ctx.channel().eventLoop());
+                        ChannelFuture future = bootstrap.connect(new InetSocketAddress("127.0.0.1", 80));
+                    }
+                    @Override
+                    protected void channelRead0(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
+                        //Do something with the data
+                    }
+                });
+
+        ChannelFuture future = serverBootstrap.bind(new InetSocketAddress(8080));
+        future.addListener(new ChannelFutureListener() {
+            @Override
+            public void operationComplete(ChannelFuture channelFuture) throws Exception {
+                if(channelFuture.isSuccess()){
+                    log.info("Server bound");
+                }else{
+                    log.info("Bind attempt failed");
+                    channelFuture.cause().printStackTrace();
+                }
+            }
+        });
+    }
+}
 ```
+
+
+
+## 8.5 Adding multiple ChannelHandlers during a bootstrap
+
+Netty提供了类*ChannelInitializer* 来实现为一个*ChannelPipeline* 里面提供多个*ChannelHandler*(即 channelHandler chain)
+
+1. Bootstrapping and using *ChannelInitializer*
+
+   ```java
+   ServerBootstrap bootstrap = new ServerBootstrap();
+   bootstrap.group(new NioEventLoopGroup(),new NioEventLoopGroup())
+       .channel(NioSeverSocketChannel.class)
+       .childHandler(new ChannelInitializerImpl());
+   ChannelFuture future = bootstrap.bind(new InetSocketAddress(8080));
+   future.sync();
+   
+   final class ChannelInitializerImpl extends ChannelInitializer<Channel> {
+       @Override
+       protected void initiChannel(Channel ch) throws Exception {
+           ChannelPipeline pipeline = ch.pipeline;
+           pipeline.addLast(new HttpClientCodec());
+           pipeline.addLast(new HttpObjectAggregator(Integer.MAX_VALUE));
+       }
+   }
+   ```
+
+   
+
+## 8.6 Using Netty ChannelOptions and attributes
+
+1. Using attributes
+
+   ```java
+   final AttributeKey<Integer> id = new AttributeKey<>("ID");
+   Bootstrap bootstrap = new Bootstrap();
+   bootstrap.group(new NioEventLoopGroup())
+       .channel(NioSocketChannel.class)
+       .handler(new SimpleChannelInboundHandler<ByteBuf>(){
+           @Override
+           public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
+               Integer idValue = ctx.channel().attr(id).get();
+               //Do something with the idValue
+           }
+           
+           @Override
+           protected void channelRead0(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
+               log.info("Received data");
+           }
+       });
+   
+   bootstrap.option(ChannelOption.SO_KEEPLIVE,true)
+       .option(ChannelOption.CONNECT_TIMEOUT_MILLS,5000);
+   bootstrap.attr(id,123456);
+   ChannelFuture future = bootstrap.connect(new InetSocketAddress("127.0.0.1",80));
+   future.syncUniterruptibly();
+   ```
+
+## 8.7 Bootstrapping DatagramChannels
+
+Don't call `connect()` but only `bind()`
+
+## 8.8 Shutdown
+
+`EventLoopGrouo.shutdownGracefully()`
+
+## 8.9 Summary
+
+# Chapter9 Unit testing
+
+*EmbeddedChannel*, that Netty provides specifically to facilitate unit testing of *ChannelHandlers*
+
+## 9.1 Overview of EmbeddedChannel
+
+1. straightforward idea
+
+   1. write inbound or outbound data into a n EmbeddedChannel 
+   2. then check whether anything reached the end of the *ChannelPipeline*
+
+2. EmbeddedChannel data flow
+
+   ![image-20220211104958603](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-embeddedchannel-data-flow.png)
+
+## 9.2 Testing ChannelHandlers with EmbeddedChannel
+
+### 9.2.1 Testing inbound message
+
+EmbeddedChannel eh = new EmbeddedChannel(要测试的handler)
+
+`eh.writeInbound`, `eh.readInbound`, 看read的结果是否和预期一样
+
+### 9.2.2 Testing outbound message
+
+## 9.3 Testing exception handling
+
+## 9.4 Summary
+
+# Part 2 Codecs
+
+# Chapter 10 The codec framework
+
+## 10.1 What is a codec
+
+encoder + decoder
+
+## 10.2 Decoders
+
+1. Netty's decoders implement *ChannelInboundHandler* 
+2. you can chain together multiple decoders thanks to the design of *ChannelPipeline* 
+
+### 10.2.1 Abstract class ByteToMessageDecoder
+
+```java
+public class ToIntegerDecoder extends ByteToMessageDecoder {
+    @Override
+    public void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
+        if(in.readableBytes() >= 4){
+            out.add(in.readInt());
+        }
+    }
+}
+```
+
+
+
+### 10.2.2 Abstract class ReplayingDecoder
 
