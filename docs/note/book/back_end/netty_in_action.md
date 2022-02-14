@@ -1511,3 +1511,313 @@ public class ToIntegerDecoder extends ByteToMessageDecoder {
 
 ### 10.2.2 Abstract class ReplayingDecoder
 
+```java
+public class ToIntegerDecoder2 extends ReplayingDecoder<Void> {
+    @Override
+    public void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception{
+        out.add(in.readInt());
+    }
+}
+```
+
+1. *ReplayingDecoder* is slightly slower than *ByteToMessageDecoder*
+
+### 10.2.3 Abstract class MessageToMessageDecoder
+
+```java
+public class IntegerToStringDecoder extends MessageToMessageDecoder<Integer> {
+    @Override
+    public void decode(ChannelHandlerContext ctx, Integer msg, List<Object> out) throws Exception {
+        out.add(String.valueOf(msg));
+    }
+}
+```
+
+### 10.2.4 Class TooLongFrameException
+
+Is intended to be thrown by decoders if a frame exceeds a specified size limit 
+
+```java
+public class SafeByteToMessageDecoder extends ByteToMessageDecoder {
+    private static final int MAX_FRAME_SIZE = 1024;
+    @Override
+    public void decode(ChannelHandelrContext ctx, ByteBuf in, List<Object> out) throws Exception {
+        int readable = in.readableBytes();
+        if(readable > MAX_FRAME_SIZE){
+            in.skipBytes(readable);
+            throw new TooLoongFrameException("Frame too big!");
+        }
+    }
+}
+```
+
+## 10.3 Encoders
+
+### 10.3.1 Abstract class MessageToByteEncoder
+
+ ```java
+ public class ShortToByteEncoder extends MessageToByteEncoder<Short> {
+     @Override
+     public void encode(ChannelHandlerContext ctx, Short msg, ByteBuf out) throws Exception {
+         out.writeShort(msg);
+     } 
+ }
+ ```
+
+### 10.3.2 Abstract class MessageToMessageEncoder
+
+```java
+public class IntegerToStringEncoder extends MessageToMessageEncoder<Integer> {
+    @Override
+    public void encode(ChannelHandlerContext ctx, Integer msg, ByteBuf out) throws Exception {
+        out.add(String.valueOf(msg));
+    } 
+}
+```
+
+## 10.4 Abstract codec classes
+
+### 10.4.1 Abstract class ByteToMessageCodec
+
+### 10.4.2 Abstract class MessageToMessageCodec
+
+### 10.4.3 Class CombinedChannelDuplexHandler
+
+This class acts as a container for a *ChannelInboundHandler* and a *ChannelOutboundHandler*
+
+```java
+public class CombineByteCharCodec extends CombinedChannelDuplexHandler<ByteToCharDecoder, charToByteEncoder> {
+    public CombinedByteCharCodec(){
+        super(new ByteToCharDecoder(), new CharToByteEncoder());
+    }
+}
+```
+
+# Chapter 11 Provided ChannelHandlers and codecs
+
+## 11.1 Securing Netty applications with SSL/TLS
+
+*SslHandler* data flow
+
+![image-20220214112202669](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-sslhandler-data-flow.png)
+
+暂时用不到，先略过
+
+## 11.2 Building Netty HTTP/HTTPS applications
+
+1. HTTP request component parts
+
+   ![image-20220214112553800](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-http-component-ports.png)
+
+2. HTTP response component parts
+
+![image-20220214112635620](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-http-response-component-parts.png)
+
+3. Adding support for HTTP
+
+   ```java
+   public class HttpPipelineInitializer extends ChannelInitializer<Channel> {
+       private final boolean client;
+   
+       public HttpPipelineInitializer(boolean client){
+           this.client = client;
+       }
+   
+       @Override
+       protected void initChannel(Channel channel) throws Exception {
+           ChannelPipeline pipeline = channel.pipeline();
+           
+           if(client) {
+               pipeline.addLast("decoder",new HttpResponseDecoder());
+               pipeline.addLast("encoder",new HttpRequestEncoder());
+           }else {
+               pipeline.addLast("decoder",new HttpRequestDecoder());
+               pipeline.addLast("encoder",new HttpResponseEncoder());
+           }
+       }
+   }
+   ```
+
+### 11.2.2 HTTP message aggregation
+
+Automatically aggregating HTTP message fragments
+
+```java
+public class HttpAggregatorInitializer extends ChannelInitializer<Channel> {
+    private final boolean isClient;
+
+    public HttpAggregatorInitializer(boolean isClient){
+        this.isClient  = isClient;
+    }
+
+    @Override
+    protected void initChannel(Channel channel) throws Exception {
+        ChannelPipeline pipeline = channel.pipeline();
+        if(isClient) {
+            pipeline.addLast("codec",new HttpClientCodec());
+        }else{
+            pipeline.addLast("codec",new HttpServerCodec());
+        }
+
+        pipeline.addLast("aggregator", new HttpObjectAggregator(512 * 1024));
+    }
+}
+```
+
+### 11.2.3 HTTP compression
+
+### 11.2.4 Using HTTPS
+
+### 11.2.5 WebSocket
+
+![image-20220214114719256](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-websocket-protocol.png)
+
+## 11.3 Idle connections and timeouts
+
+*IdleStateHandler*, *ReadTimeoutHandler*, *WriteTimeoutHandler*
+
+Sending heartbeats
+
+![image-20220214115555135](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-sending-heartbeat.png)
+
+
+
+## 11.4 Decoding delimited and length-based protocols
+
+SMTP, POP3, IMAP, Telnet
+
+暂时用不到，略过
+
+### 11.4.1 Delimited protocols
+
+### 11.4.2 Length-based protocols
+
+## 11.5 Writing big data
+
+## 11.6 Serializing data
+
+### 11.6.1 JDK serialization
+
+### 11.6.2 Serialization with JBoss Marshalling
+
+### 11.6.3 Serialization via Protocol Buffers
+
+## 11.7 Summary
+
+# Part 3 Network protocols
+
+# Chapter 12 WebSocket
+
+暂时跳过
+
+# Chapter 13 Broadcasting events with UDP
+
+## 13.1 UDP basics
+
+1. UDP, conversely, resembles dropping a bunch of postcards in a mailbox. Your can't know the order in which they will arrive at their destination, or even if they all will arrive
+2. UDP is a good fit applications that can handle or tolerate lost messages
+
+## 13.2 UDP broadcast
+
+1. Multicast
+   1. Transmission to a defined group of hosts
+2. Broadcast
+   1. Transmission to all of the hosts on a network( or a subnet )
+
+## 13.3 The UDP sample application
+
+![image-20220214141852607](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-broadcast-system-overview.png)
+
+## 13.4 The message POJO: LogEvent
+
+```java
+@Data
+public class LogEvent {
+    public static final byte SEPARATOR = ':';
+    private InetSocketAddress source;
+    private String logfile;
+    private String msg;
+    private long received;
+
+    public LogEvent(){}
+    
+    public LogEvent(String logfile, String msg) {
+        this.logfile = logfile;
+        this.msg = msg;
+    }
+
+    public LogEvent(InetSocketAddress source, long received, String logfile, String msg) {
+        this.source = source;
+        this.received = received;
+        this.logfile = logfile;
+        this.msg = msg;
+    }
+}
+```
+
+## 13.5 Writing the broadcaster
+
+1. Netty's *DatagramPacket* is a simple message container used by *DatagramChannel* implementations to communicate with remote peers
+
+2. LogEventBroadcaster : ChannelPipeline and LogEvent flow
+
+   1. ![image-20220214143143105](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-logEventBroadcaster-flow.png)
+
+   2. ```java
+      public class LogEventBroadcaster {
+          private EventLoopGroup group;
+          private Bootstrap bootstrap;
+          private File file;
+      
+          public LogEventBroadcaster(InetSocketAddress address, File file) {
+              group = new NioEventLoopGroup();
+              bootstrap = new io.netty.bootstrap.Bootstrap();
+              bootstrap.group(group)
+                      .channel(NioDatagramChannel.class)
+                      .option(ChannelOption.SO_BROADCAST, true)
+                      .handler(new LogEventEncoder(address));
+      
+              this.file = file;
+      
+          }
+      
+          public void run() throws Exception {
+              Channel ch = bootstrap.bind(0).sync().channel();
+              long pointer = 0;
+              for (; ; ) {
+                  long len = file.length();
+                  if(len < pointer){
+                      //file was reset
+                      pointer = len;
+                  }else if(len > pointer){
+                      //Content was added
+                      RandomAccessFile raf = new RandomAccessFile(file,"r");
+                      raf.seek(pointer);
+                      String line;
+                      while((line = raf.readLine()) != null){
+                          ch.writeAndFlush(new LogEvent(null, -1, file.getAbsolutePath(),line));
+                      }
+      
+                      pointer = raf.getFilePointer();
+                      raf.close();
+                  }
+                  Thread.sleep(1000);
+              }
+          }
+      
+          public void stop(){
+              group.shutdownGracefully();
+          }
+      
+          public static void main(String[] args) throws Exception {
+              LogEventBroadcaster broadcaster = new LogEventBroadcaster(new InetSocketAddress("255.255.255.255",Integer.parseInt(args[0])),new File(args[1]));
+              broadcaster.run();
+          }
+      
+      }
+      ```
+
+## 13.6 Writing the monitor
+
+![image-20220214151321136](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/netty-logEventMonitor.png)
+

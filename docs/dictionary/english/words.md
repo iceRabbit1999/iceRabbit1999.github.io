@@ -46,6 +46,7 @@
 2. bypassed:绕过
 3. By contrast:相比之下
 4. boilerplate：样板
+4. bidirectional：双向
 
 # C
 
@@ -192,6 +193,8 @@
 
 41. dictate：听写，命令
 
+41. decryption：解密
+
     
 
 # E
@@ -241,6 +244,7 @@
 34. elapsed：过去
 34. enclosing：封闭
 34. excessive：过多的
+34. encryption：加密
 
 # F
 
@@ -315,6 +319,8 @@
 36. immutable：不可变
 36. implicitly：含蓄的
 36. insulates：隔离
+36. incorporate：包含
+36. infrastructure：基础设施
 
 
 
@@ -334,6 +340,7 @@
 8. linchpin：关键
 9. latency：延迟
 9. legacy：遗产
+9. leverages  ：杠杆作用，借助
 
 
 
@@ -377,6 +384,7 @@
 9. optimizes：优化
 9. odds：赔率
 9. Occasionally：偶尔
+9. obligatory：强制性的
 
 # P
 
@@ -455,6 +463,7 @@
 20. reap：收割
 20. resembling：类似于
 20. recurring：再次发生的
+20. recipient：接收者
 
 # S
 
@@ -496,6 +505,8 @@
 31. substantial：重大的
 31. snippet：片段
 31. Subsequently：随后
+31. saturation：饱和
+31. scratch：划痕，从零开始
 
 # T
 
@@ -511,6 +522,7 @@
 7. tedious：乏味
 7. thoroughly：彻底
 7. twist：扭转
+7. threshold：临界点，阈值
 
 # U
 
