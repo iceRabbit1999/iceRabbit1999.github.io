@@ -48,6 +48,7 @@
 3. By contrast:相比之下
 4. boilerplate：样板
 4. bidirectional：双向
+4. bolts：螺栓
 
 # C
 
@@ -249,6 +250,7 @@
 34. excessive：过多的
 34. encryption：加密
 34. estimated：估计的
+34. edge：边缘
 
 # F
 
@@ -471,6 +473,7 @@
 20. resembling：类似于
 20. recurring：再次发生的
 20. recipient：接收者
+20. resounding：高亢
 
 # S
 
@@ -514,6 +517,7 @@
 31. Subsequently：随后
 31. saturation：饱和
 31. scratch：划痕，从零开始
+31. surveillance：监视
 
 # T
 
@@ -559,6 +563,7 @@
 8. vibrant:充满活力
 8. volume:体积
 8. vaguely：依稀
+8. vulnerable：易受伤害的
 
 # W
 

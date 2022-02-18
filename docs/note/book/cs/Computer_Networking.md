@@ -2,6 +2,13 @@
 
 # Chapter 1 Computer Networks and the Internet
 
+## 1.1 What i Is the Internet?
+
+1. First, we can describe the nuts and bolts of the Internet, that is the basic hardware and software components that make up the Internet
+2. Second, we can describe the Internet in terms of a networking infrastructure that provides services to distributed applications
+
+### 1.1.1 A Nuts-and-Bolts Description
+
 
 
 # Chapter 2 Application Layer
