@@ -334,7 +334,7 @@ cross-type operation
    1. 继承关系 tower structure 继承树
    2. inadequacies：多继承带来的一系列问题
 
-# 3 Modularity,Objeccts,and State
+# 3 Modularity,Objects,and State
 
 1. Two "world views" strategies of the structure of systems
    1. Objects
@@ -353,4 +353,12 @@ Java的万物皆对象的概念，对象内部强耦合，对象之间松耦合 
 好像就是类的成员变量
 
 ### 3.1.2 The Benefits of introducing Assignment
+
+By introducing assignment and the technique of one part of hiding state in local variables, we are able to structure systems in a more modular fashion than  if all stated to be manipulated explicitly, by passing additional parameters 
+
+### 3.1.3 The Costs of Introducing Assignment
+
+So long as we do not use assignments, two evaluations of the same procedure with the same arguments will produce the same result, so that procedures can be viewed as computing mathematical functions.
+
+so called functional programming
 

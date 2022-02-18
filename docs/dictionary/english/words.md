@@ -39,6 +39,7 @@
 32. aggregated：聚合的
 32. attach：连接，附上
 32. adoption：采用
+32. arguably：可以说
 
 # B
 
@@ -195,6 +196,8 @@
 
 41. decryption：解密
 
+41. deductions：扣除
+
     
 
 # E
@@ -245,6 +248,7 @@
 34. enclosing：封闭
 34. excessive：过多的
 34. encryption：加密
+34. estimated：估计的
 
 # F
 
@@ -321,6 +325,7 @@
 36. insulates：隔离
 36. incorporate：包含
 36. infrastructure：基础设施
+36. inventory：存货
 
 
 
@@ -358,6 +363,7 @@
 10. moderate：中等的
 10. migration：迁移
 10. malformed：畸形，异常
+10. mere：仅仅是
 
 # N
 
@@ -431,6 +437,7 @@
 1. potential：潜在的
 1. periodic：周期性的
 1. proprietary：所有权
+1. profound：深刻的
 
 # Q
 
