@@ -49,65 +49,140 @@
 4. boilerplate：样板
 4. bidirectional：双向
 4. bolts：螺栓
+4. broadband：宽带
+4. buzzword：流行语
 
 # C
 
 1. claim：要求
+
 2. compatibility 兼容性
+
 3. compliant 顺从
+
 4. Curriculum 课程设置
+
 5. calculus 微积分
+
 6. computational：计算的
+
 7. conjure ：变戏法
+
 8. compose:组成
+
 9. conveniently：方便的
+
 10. catastrophic：灾难性的
+
 11. collapse：崩溃
+
 12. conceived：构思
+
 13. capabilities：能力
+
 14. concerted：共同的
+
 15. comparison：比较
+
 16. compound：复合
+
 17. convention：惯例
+
 18. customary：习惯性的
+
 19. critical：关键
+
 20. constitute：构成
+
 21. corresponding：相应的
+
 22. culminating：最终的
+
 23. clauses：子句
+
 24. contrast：对比
+
 25. crucial：关键
+
 26. coexist：共存
+
 27. composite:复合
+
 28. contraction：收缩
+
 29. considerably:大体上
+
 30. crude：粗略的
+
 31. converge：收敛
+
 32. conceptual：概念性
+
 33. closure：关闭
+
 34. concrete：混凝土，具体的
+
 35. corresponds：对应
+
 36. crucially：至关重要
+
 37. cascade：逐级，瀑布
+
 38. crude：粗，粗略的
+
 39. commitment:承诺
+
 40. conflict：冲突
+
 41. clause：条款
+
 42. cumbersome:复杂的
+
 43. coherent：连贯性
+
 44. coercion：胁迫
+
 45. concurrency：并发
+
 46. cumbersome：繁琐
+
 47. capable：有能力的
+
 48. concrete:具体的
+
 49. collaborate：合作
-49. constraints：约束
-49. complementary：补充
-49. compact:袖珍的，紧凑的
-49. commonplace：平凡
-49. compatibility：兼容性
-49. culprit：罪魁祸首
-49. candidates：考生，候选人
+
+50. constraints：约束
+
+51. complementary：补充
+
+52. compact:袖珍的，紧凑的
+
+53. commonplace：平凡
+
+54. compatibility：兼容性
+
+55. culprit：罪魁祸首
+
+56. candidates：考生，候选人
+
+57. coaxial：同轴
+
+58. cable：电缆
+
+59. copper：铜
+
+60. cargo：货物
+
+61. cellular：蜂窝
+
+62. conforms：符合
+
+63. convention：公约
+
+    
+
+    
 
 # D
 
@@ -199,6 +274,8 @@
 
 41. deductions：扣除
 
+41. dictates：发号施令
+
     
 
 # E
@@ -260,6 +337,8 @@
 4. façade：正面
 5. former：前者
 5. facilitate：促进
+5. flavors：口味
+5. fleet：舰队
 
 # G
 
@@ -328,12 +407,19 @@
 36. incorporate：包含
 36. infrastructure：基础设施
 36. inventory：存货
+36. intersection：十字路口
+36. interconnect：互联
+36. interoperate：互操作
+36. instruct：指导
+36. initiate：发起
+36. implicit：隐含的
 
 
 
 # J
 
 1. jeopardizing:危及
+1. jargon：行话
 
 # L
 
@@ -377,6 +463,8 @@
 6. mingling：混杂在一起
 7. nonetheless:然而
 8. neophytes：新手
+8. notably：尤其
+8. notion：概念
 
 # O
 
@@ -440,6 +528,7 @@
 1. periodic：周期性的
 1. proprietary：所有权
 1. profound：深刻的
+1. prominent：突出
 
 # Q
 
@@ -474,6 +563,7 @@
 20. recurring：再次发生的
 20. recipient：接收者
 20. resounding：高亢
+20. residential：住宅
 
 # S
 
@@ -508,16 +598,18 @@
 29. scalabilit：可扩展性
 30. short supply：供不应求
 31. stimulated：刺激
-31. symbiotic：共生
-31. semantics:语义
-31. sophisticated：复杂的
-31. suspended：暂停
-31. substantial：重大的
-31. snippet：片段
-31. Subsequently：随后
-31. saturation：饱和
-31. scratch：划痕，从零开始
-31. surveillance：监视
+32. symbiotic：共生
+33. semantics:语义
+34. sophisticated：复杂的
+35. suspended：暂停
+36. substantial：重大的
+37. snippet：片段
+38. Subsequently：随后
+39. saturation：饱和
+40. scratch：划痕，从零开始
+41. surveillance：监视
+42. segmented：分段的
+43. seal：海豹，密封
 
 # T
 
@@ -534,6 +626,8 @@
 7. thoroughly：彻底
 7. twist：扭转
 7. threshold：临界点，阈值
+7. traversed：遍历
+7. tier：等级
 
 # U
 
@@ -564,6 +658,7 @@
 8. volume:体积
 8. vaguely：依稀
 8. vulnerable：易受伤害的
+8. warehouse：仓库
 
 # W
 
