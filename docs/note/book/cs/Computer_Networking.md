@@ -35,6 +35,24 @@ some jargon
 
 ![image-20220219195054714](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/cn-protocol.png)
 
+1. The exchange of messages and the actions taken when these  messages are sent and received are the key defining elements of a protocol
+2. A protocol defines the format and the order of messages exchanged between two or more communicating entities, as well as the actions taken on the transmission and/or receipt of a message or other event
+
+## 1.2 The Network Edge
+
+1. End system: they sit at the edge of the Internet  *host = end system*
+
+### 1.2.1 Access Networks
+
+1. Access network —the network that physically connects an end system to the first router(edge router)
+2. DSL: digital subscriber line
+3. Cable Internet access
+4. Fiber to the home
+
+
+
+
+
 # Chapter 2 Application Layer
 
 # Chapter 3 Transport Layer
