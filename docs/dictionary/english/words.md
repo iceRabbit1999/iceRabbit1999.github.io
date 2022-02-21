@@ -40,8 +40,6 @@
 32. attach：连接，附上
 32. adoption：采用
 32. arguably：可以说
-39. asymmetric：不对称
-40. aggregate：总计
 
 # B
 
@@ -53,7 +51,6 @@
 4. bolts：螺栓
 4. broadband：宽带
 4. buzzword：流行语
-9. briefly：简要的说
 
 # C
 
@@ -183,7 +180,11 @@
 
 63. convention：公约
 
-64. congestion：拥塞
+63. corporate：公司的
+
+63. campuses：校园
+
+63. colloquially：通俗的说
 
     
 
@@ -281,6 +282,8 @@
 
 41. dictates：发号施令
 
+41. disparaged：贬低
+
     
 
 # E
@@ -333,7 +336,7 @@
 34. encryption：加密
 34. estimated：估计的
 34. edge：边缘
-49. essentially：本质上
+34. elapses：经过
 
 # F
 
@@ -353,7 +356,6 @@
 3. glue：胶合剂
 4. grapple:扭打
 5. germane：密切相关
-6. gauge：衡量标准
 
 # H
 
@@ -420,7 +422,8 @@
 36. instruct：指导
 36. initiate：发起
 36. implicit：隐含的
-54. impairment：损伤
+36. investments：投资
+36. incident：事件，附带的
 
 
 
@@ -428,7 +431,6 @@
 
 1. jeopardizing:危及
 1. jargon：行话
-1. junctions：路口
 
 # L
 
@@ -461,7 +463,6 @@
 10. migration：迁移
 10. malformed：畸形，异常
 10. mere：仅仅是
-14. modem：强制解调器
 
 # N
 
@@ -539,7 +540,7 @@
 1. proprietary：所有权
 1. profound：深刻的
 1. prominent：突出
-1. prevalent：流行
+1. predominant：占主导地位的
 
 # Q
 
@@ -575,7 +576,6 @@
 20. recipient：接收者
 20. resounding：高亢
 20. residential：住宅
-28. replicated：复制的
 
 # S
 
@@ -622,6 +622,7 @@
 41. surveillance：监视
 42. segmented：分段的
 43. seal：海豹，密封
+43. stationary：静止的
 
 # T
 
@@ -640,7 +641,7 @@
 7. threshold：临界点，阈值
 7. traversed：遍历
 7. tier：等级
-16. telco：电信公司
+7. thereafter：此后
 
 # U
 

@@ -49,6 +49,25 @@ some jargon
 3. Cable Internet access
 4. Fiber to the home
 
+### 1.2.2 Physical Media
+
+介绍了接入网络的几种形式，材料啥的，没啥兴趣读完了
+
+## 1.3 The Network Core
+
+Network core —the mash of packet switches and links that interconnects the Internet's end systems
+
+### 1.3.1 Packet Switching
+
+1. Messages: can contain anything designer wants
+2. Packets: The source breaks long messages into smaller chunks of data known as packets
+3. Packet switches
+   1. router
+   2. link-layer switches
+4. Store-and-Forward Transmission: The packet switch must receive the entire packet before it can begin to transmit the first bit of the packet onto the outbound
+
+ 
+
 
 
 
