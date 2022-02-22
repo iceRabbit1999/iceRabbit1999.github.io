@@ -40,6 +40,8 @@
 32. attach：连接，附上
 32. adoption：采用
 32. arguably：可以说
+32. adjacent：邻近的
+32. attendant：服务员
 
 # B
 
@@ -51,6 +53,9 @@
 4. bolts：螺栓
 4. broadband：宽带
 4. buzzword：流行语
+4. burst：爆裂
+4. bona fide：真诚的
+4. backlog：积压的
 
 # C
 
@@ -186,6 +191,8 @@
 
 63. colloquially：通俗的说
 
+63. Circuit：电路
+
     
 
     
@@ -284,6 +291,10 @@
 
 41. disparaged：贬低
 
+41. diverse：各种各样
+
+41. desirable：可取的
+
     
 
 # E
@@ -337,6 +348,7 @@
 34. estimated：估计的
 34. edge：边缘
 34. elapses：经过
+34. ecosystem：生态系统
 
 # F
 
@@ -348,6 +360,7 @@
 5. facilitate：促进
 5. flavors：口味
 5. fleet：舰队
+5. fluid：流质的，液体的
 
 # G
 
@@ -366,6 +379,7 @@
 5. hats off to yo：向你脱帽致敬
 5. hinges：铰链
 5. harness：马具
+5. hassle：麻烦
 
 # I
 
@@ -424,6 +438,9 @@
 36. implicit：隐含的
 36. investments：投资
 36. incident：事件，附带的
+36. instantaneously：瞬间
+36. intuitive：直觉的
+36. intervening：干预
 
 
 
@@ -445,6 +462,7 @@
 9. latency：延迟
 9. legacy：遗产
 9. leverages  ：杠杆作用，借助
+9. lofty：崇高
 
 
 
@@ -463,6 +481,7 @@
 10. migration：迁移
 10. malformed：畸形，异常
 10. mere：仅仅是
+10. Multiplexing：多路复用
 
 # N
 
@@ -541,6 +560,8 @@
 1. profound：深刻的
 1. prominent：突出
 1. predominant：占主导地位的
+1. portion：部分
+1. profitable：有利润的
 
 # Q
 
@@ -576,6 +597,7 @@
 20. recipient：接收者
 20. resounding：高亢
 20. residential：住宅
+20. reservation：预定
 
 # S
 
@@ -623,6 +645,8 @@
 42. segmented：分段的
 43. seal：海豹，密封
 43. stationary：静止的
+43. slab：板
+43. subtle：微妙
 
 # T
 
@@ -642,6 +666,7 @@
 7. traversed：遍历
 7. tier：等级
 7. thereafter：此后
+7. tollbooths：收费站
 
 # U
 
@@ -677,3 +702,4 @@
 # W
 
 1. wholesale:批发
+1. whet：磨

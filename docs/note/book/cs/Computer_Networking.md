@@ -64,7 +64,71 @@ Network core —the mash of packet switches and links that interconnects the Int
 3. Packet switches
    1. router
    2. link-layer switches
-4. Store-and-Forward Transmission: The packet switch must receive the entire packet before it can begin to transmit the first bit of the packet onto the outbound
+4. Store-and-Forward Transmission: The packet switch must receive the entire packet before it can begin to transmit the first bit of the packet onto the outbound link
+5. Packet loss —either the arriving packet or one of the already-queued packets will be dropped
+6. Forwarding table: each router has a forwarding table that maps destination address to that router's outbound links
+7. The end-to-end routing process is analogous to a car driver who does not use maps but instead prefers to ask for directions
+
+### 1.3.2 Circuit Switching
+
+1. Traditional telephone networks are examples of circuit-switched networks
+2. 多路复用，也没啥兴趣
+
+### 1.3.3 A Network of Networks
+
+1. The access ISPSs themselves must be interconnected. This is done by creating a *network of networks*—understanding this is the key to understanding the Internet
+2. ![image-20220222105053131](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/cn-interconnection-of-isps.png)
+   1. 内容很多，循序渐进讲了模式的演变，但是最后这一张图就够了
+
+## 1.4 Delay, Loss, and Throughput in Packet-Switched Networks
+
+1. Throughput: the amount of data per second that can be tranferred
+
+### 1.4.1 Overview of Delay in Packet-Switched Networks
+
+1. Total delay
+   1. nodal processing delay
+   2. queuing delay
+   3. transmission delay
+   4. propagation delay
+   5. ![image-20220222110552023](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/cn-nodal-delay-at-routera.png)
+2. 一些delay的具体介绍，其实感觉稍微有点面向0基础了，跳过一部分
+
+### 1.4.2 Queuing Delay and Packet Loss
+
+1. ![image-20220222112021614](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/cn-queuing-delay-la-r.png)
+
+   1. La/R: traffic intensity
+
+   L: packets consist of L bits
+
+   a: in units of packet/sec
+
+   La:  the average rate at which bits arrive at the queue
+
+   R: transmission rate
+
+   花了很多篇幅来讲这个图，但其实图片一目了然，当然因为这个原理不是我所关注的重点
+
+   
+
+2. A packet can arrive to find a full queue. With no place to store such a packet, a router will **drop** that packet, the packet will be **lost**
+
+### 1.4.3 End-to-End Delay
+
+让跑一个程序感受一下delay，讲了讲终端系统可能带来的各方面延迟
+
+### 1.4.4 Throughput in Computer Networks
+
+取决于bottleneck link
+
+## 1.5 Protocol Layers and Their Service Models
+
+### 1.5.1 Layered Architecture
+
+1. 用坐飞机来类比引入分层模型，其实依然是模块化的思想，水平、垂直、分级的思想(From SICP)，还看到有比如黑盒的特征，各层级之间解耦合
+
+
 
  
 
