@@ -42,6 +42,7 @@
 32. arguably：可以说
 32. adjacent：邻近的
 32. attendant：服务员
+32. accommodates：容纳
 
 # B
 
@@ -56,6 +57,7 @@
 4. burst：爆裂
 4. bona fide：真诚的
 4. backlog：积压的
+4. botnet：僵尸网络
 
 # C
 
@@ -193,6 +195,10 @@
 
 63. Circuit：电路
 
+63. constituent：组分
+
+63. confining：限制
+
     
 
     
@@ -295,6 +301,8 @@
 
 41. desirable：可取的
 
+41. delimiting：划界
+
     
 
 # E
@@ -349,6 +357,9 @@
 34. edge：边缘
 34. elapses：经过
 34. ecosystem：生态系统
+34. enrolled：注册
+34. encompassing：包罗万象
+34. engaging：引人入胜
 
 # F
 
@@ -361,6 +372,7 @@
 5. flavors：口味
 5. fleet：舰队
 5. fluid：流质的，液体的
+5. forefront：最前沿
 
 # G
 
@@ -380,6 +392,7 @@
 5. hinges：铰链
 5. harness：马具
 5. hassle：麻烦
+5. havoc：浩劫，毁灭
 
 # I
 
@@ -422,25 +435,30 @@
 37. intercepting：拦截 
 38. invocation：调用
 39. identical：完全相同的
-36. intermediate：中间的
-36. indices：指数，索引
-36. immutable：不可变
-36. implicitly：含蓄的
-36. insulates：隔离
-36. incorporate：包含
-36. infrastructure：基础设施
-36. inventory：存货
-36. intersection：十字路口
-36. interconnect：互联
-36. interoperate：互操作
-36. instruct：指导
-36. initiate：发起
-36. implicit：隐含的
-36. investments：投资
-36. incident：事件，附带的
-36. instantaneously：瞬间
-36. intuitive：直觉的
-36. intervening：干预
+40. intermediate：中间的
+41. indices：指数，索引
+42. immutable：不可变
+43. implicitly：含蓄的
+44. insulates：隔离
+45. incorporate：包含
+46. infrastructure：基础设施
+47. inventory：存货
+48. intersection：十字路口
+49. interconnect：互联
+50. interoperate：互操作
+51. instruct：指导
+52. initiate：发起
+53. implicit：隐含的
+54. investments：投资
+55. incident：事件，附带的
+56. instantaneously：瞬间
+57. intuitive：直觉的
+58. intervening：干预
+59. infancy：婴儿期
+60. inoperable：无法操作
+61. immune：免疫
+62. inception：开始
+63. integral：不可缺少的
 
 
 
@@ -482,6 +500,10 @@
 10. malformed：畸形，异常
 10. mere：仅仅是
 10. Multiplexing：多路复用
+10. memo：备忘录
+10. Malware：恶意软件
+10. malicious：恶意的
+10. millennium：千年
 
 # N
 
@@ -562,6 +584,8 @@
 1. predominant：占主导地位的
 1. portion：部分
 1. profitable：有利润的
+1. profusion：丰富
+1. paradigms：范式
 
 # Q
 
@@ -683,6 +707,7 @@
 9. utility：公共事业
 9. underpinnings：基础
 9. unwieldy：笨重
+9. utility：效用
 
 # V
 
@@ -698,8 +723,10 @@
 8. vaguely：依稀
 8. vulnerable：易受伤害的
 8. warehouse：仓库
+8. vehemently：强烈的
 
 # W
 
 1. wholesale:批发
 1. whet：磨
+1. wreak：恶作剧

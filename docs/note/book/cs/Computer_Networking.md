@@ -127,16 +127,62 @@ Network core —the mash of packet switches and links that interconnects the Int
 ### 1.5.1 Layered Architecture
 
 1. 用坐飞机来类比引入分层模型，其实依然是模块化的思想，水平、垂直、分级的思想(From SICP)，还看到有比如黑盒的特征，各层级之间解耦合
+2. drawback
+   1. one layer may duplicate lower-layer functionality 
+   2. functionality at one layer may need information that is present only in another layer
 
+3. Application Layer
+   1. where network applications and their application-layer protocols reside
 
+4. Transport Layer
+   1. transports application-layer messages between application endpoints
 
- 
+5. Network Layer
+   1. responsible for moving network-layer packets known as *datagrams* from one host to another
+   2. simply referred to as the IP layer, reflecting the fact that IP is the glue that binds the Internet together
 
+6. Link Layer
+   1. to move a packet from one node to the next node in the route
+   2. we'll refer to the link-layer packets as *frames*
 
+7. Physical Layer
+   1. to move the individual bits within the frame from one node to the next
 
+8. The OSI Model
+   1. presentation layer: to provide services that allow communicating applications to interpret the meaning of data exchanged
+   2. session layer: provides for delimiting and synchronization of data exchange, including the means to build a checkpointing and recovery scheme
 
+9. OSI多出来的两层是否需要取决于application和developer，如果应用需要，那么开发者应当构建相关的服务
+
+### 1.5.2 Encapsulation
+
+1. The Internet architecture puts much of its complexity at the edges of the network
+2. payload: the payload is typically a packet from the layer above
+3. Message在经过每一层的时候都会经历一次封装
+
+## 1.6 Networks under Attack
+
+## 1.7 History of Computer Networking and the Internet
+
+## 1.8 Summary
+
+ 想快点到具体每一层了，跳过
 
 # Chapter 2 Application Layer
+
+1. Network applications are the raisons d’être of a computer network
+
+## 2.1 Principles of Network Applications
+
+Confining application software to the end systems has facilitated the rapid development and deployment of a vast array of network applications
+
+### 2.1.1 Network Application Architectures
+
+cs架构和P2P架构
+
+### 2.1.2 Processes Communicating
+
+
 
 # Chapter 3 Transport Layer
 
