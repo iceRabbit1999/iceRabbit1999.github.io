@@ -182,6 +182,69 @@ cs架构和P2P架构
 
 ### 2.1.2 Processes Communicating
 
+1. It is not actually programs but processes that communicate
+2. Processes on two different end systems communicate with each other by exchanging messages across the computer network
+3. ![image-20220224101451024](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/cn-process-socket-network.png)
+   1. A socket is the interface between the application layer and the transport layer within a host
+4. IP + port –> address
+
+### 2.1.3 Transport Services Available to Applications
+
+1. Reliable Data Transfer
+2. Throughput
+3. Timing
+4. Security
+
+### 2.1.4 Transports Services Provided by the Internet
+
+1. TCP Services
+   1. Connection-oriented service
+   2. Reliable data transfer service
+2. UDP Services
+   1. Connectionless
+   2. Unreliable data transfer service
+
+### 2.1.5 Application-Layer Protocols
+
+1. An application-layer protocol defines: 
+   1. The types of messages exchanged, for example, request messages and response messages
+   2. The syntax of the various message types, such as the fields in the message and how the fields are delineated
+   3. The semantics of the fields, that is, the meaning of the information in the fields
+   4. Rules for determining when and how a process sends messages and responds to messages
+2. To distinguish between network applications and application-layer protocols
+   1. An application-layer protocol is only one piece of network application(but a very important one)
+
+### 2.1.6 Network Application Covered in This Book
+
+## 2.2 The Web and HTTP
+
+### 2.2.1 Overview of HTTP
+
+简单讲HTTP的cs流程，比较基础
+
+### 2.2.2 Non-Persistent and Persistent Connections
+
+介绍non-persistent和persistent连接的区别，实际上就是长连接(连接复用的概念)
+
+### 2.2.3 HTTP Message Format
+
+简单讲request和response的结构
+
+### 2.2.4 User-Server Interaction: Cookies
+
+Cookies: allow sites to keep track of users
+
+Cookie technology has four components:
+
+1. A cookie header line in the HTTP response
+2. A cookie header line in the HTTP request message
+3. A cookie file kept on the user's end system and managed by the user's browser
+4. A back-end database at the Web site
+
+![image-20220224201643920](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/cn-cookkie.png)
+
+### 2.2.5 Web Caching
+
 
 
 # Chapter 3 Transport Layer

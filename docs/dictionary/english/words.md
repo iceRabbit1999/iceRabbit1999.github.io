@@ -43,6 +43,7 @@
 32. adjacent：邻近的
 32. attendant：服务员
 32. accommodates：容纳
+32. adaptiv：自适应
 
 # B
 
@@ -199,6 +200,16 @@
 
 63. confining：限制
 
+63. corrupted：损坏的
+
+63. conspicuously：明显的
+
+63. circumventing：规避
+
+63. cherish：珍惜
+
+63. conjunction:：连词，关联
+
     
 
     
@@ -303,6 +314,10 @@
 
 41. delimiting：划界
 
+41. devastating：破坏性的
+
+41. duplex：双工
+
     
 
 # E
@@ -360,6 +375,9 @@
 34. enrolled：注册
 34. encompassing：包罗万象
 34. engaging：引人入胜
+34. elastic：松紧带，弹性
+34. emphasize：强调
+34. encyclopedic：百科全书
 
 # F
 
@@ -373,6 +391,8 @@
 5. fleet：舰队
 5. fluid：流质的，液体的
 5. forefront：最前沿
+5. fluctuate：变幻莫测
+5. frills：装饰
 
 # G
 
@@ -459,6 +479,9 @@
 61. immune：免疫
 62. inception：开始
 63. integral：不可缺少的
+64. intact：完好无损的
+65. intermittently：间歇性的
+66. intentionally：故意的
 
 
 
@@ -481,6 +504,7 @@
 9. legacy：遗产
 9. leverages  ：杠杆作用，借助
 9. lofty：崇高
+9. linefeed：换行
 
 
 
@@ -517,6 +541,7 @@
 8. neophytes：新手
 8. notably：尤其
 8. notion：概念
+8. negotiation：谈判
 
 # O
 
@@ -533,6 +558,7 @@
 9. odds：赔率
 9. Occasionally：偶尔
 9. obligatory：强制性的
+9. onslaught：猛攻，发端
 
 # P
 
@@ -586,6 +612,10 @@
 1. profitable：有利润的
 1. profusion：丰富
 1. paradigms：范式
+1. pervasive：无孔不入
+1. Persistent：执着的，持久
+1. parallelism：并行性
+1. prioritizing：优先
 
 # Q
 
@@ -622,6 +652,7 @@
 20. resounding：高亢
 20. residential：住宅
 20. reservation：预定
+20. realm：领域
 
 # S
 
@@ -671,6 +702,8 @@
 43. stationary：静止的
 43. slab：板
 43. subtle：微妙
+43. shoves：推搡
+43. serially：串行
 
 # T
 
@@ -691,6 +724,7 @@
 7. tier：等级
 7. thereafter：此后
 7. tollbooths：收费站
+7. throttles：节流阀，风门，掐死
 
 # U
 
@@ -724,6 +758,7 @@
 8. vulnerable：易受伤害的
 8. warehouse：仓库
 8. vehemently：强烈的
+8. vague：模糊的
 
 # W
 
