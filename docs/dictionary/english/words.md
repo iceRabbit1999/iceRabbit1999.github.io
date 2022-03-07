@@ -44,6 +44,10 @@
 32. attendant：服务员
 32. accommodates：容纳
 32. adaptiv：自适应
+32. attachments：附件
+32. abbreviation：缩写
+32. alluded：暗示
+32. alphanumeric：字母数字
 
 # B
 
@@ -210,6 +214,10 @@
 
 63. conjunction:：连词，关联
 
+63. certificates：证书
+
+63. canonical：典范
+
     
 
     
@@ -318,6 +326,8 @@
 
 41. duplex：双工
 
+41. designates：指定
+
     
 
 # E
@@ -378,6 +388,7 @@
 34. elastic：松紧带，弹性
 34. emphasize：强调
 34. encyclopedic：百科全书
+34. era：时代
 
 # F
 
@@ -482,6 +493,9 @@
 64. intact：完好无损的
 65. intermittently：间歇性的
 66. intentionally：故意的
+67. institutional：体制
+67. intermediate：中间的
+67. impractical：不切实际的
 
 
 
@@ -528,6 +542,7 @@
 10. Malware：恶意软件
 10. malicious：恶意的
 10. millennium：千年
+10. mnemonic：助记符
 
 # N
 
@@ -542,6 +557,8 @@
 8. notably：尤其
 8. notion：概念
 8. negotiation：谈判
+8. neglect：忽视
+8. nomadic：游牧的
 
 # O
 
@@ -559,6 +576,7 @@
 9. Occasionally：偶尔
 9. obligatory：强制性的
 9. onslaught：猛攻，发端
+9. on the behalf of：代表
 
 # P
 
@@ -616,6 +634,9 @@
 1. Persistent：执着的，持久
 1. parallelism：并行性
 1. prioritizing：优先
+1. proposition：主张
+1. peripheral：外围设备，肤浅的
+1. partitions：分区
 
 # Q
 
@@ -653,6 +674,7 @@
 20. residential：住宅
 20. reservation：预定
 20. realm：领域
+20. reconcile：调和
 
 # S
 
@@ -704,6 +726,8 @@
 43. subtle：微妙
 43. shoves：推搡
 43. serially：串行
+43. stale：陈旧
+43. scarce：稀缺
 
 # T
 
@@ -725,6 +749,8 @@
 7. thereafter：此后
 7. tollbooths：收费站
 7. throttles：节流阀，风门，掐死
+7. transcript：成绩单，副本
+7. tacitly：心照不宣
 
 # U
 
@@ -742,6 +768,7 @@
 9. underpinnings：基础
 9. unwieldy：笨重
 9. utility：效用
+9. ubiquity：无处不在
 
 # V
 

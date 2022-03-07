@@ -245,6 +245,73 @@ Cookie technology has four components:
 
 ### 2.2.5 Web Caching
 
+1. Web cache == proxy server
+2. Has its own disk storage and keeps copies of recently requested objects in this storage
+3. A cache is both a server and a client at the same time
+4. Two reasons to deployment web cache in the Internet:
+   1. reduce the response time for a client request
+   2. reduce traffic on an institution's access link to the Internet
+5. Conditional GET: allows a cache to verify that its objects are up to date
+   1. GET + If-Modified-Since header
+
+## 2.3 Electronic Mail in the Internet
+
+### 2.3.1 SMTP
+
+mail server to mail server
+
+### 2.3.2 Comparison with HTTP
+
+1. HTTP is mainly a pull protocol, SMTP is primarily a push protocol
+2. SMTP requires each message to be in 7-bit ASCII format
+3. HTTP encapsulates each object in its own HTTP response message, SMTP places all of the message's objects into one message
+
+### 2.3.3 Mail Message Formats
+
+### 2.3.4 Mail Access Protocol
+
+![image-20220307095333801](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/cn-email-access-protocol.png)
+
+简单介绍了POP3，IMAP
+
+## 2.4 DNS—The Internet's Directory Service
+
+Internet identifier:
+
+1. hostname
+2. IP address
+
+### 2.4.1 Services Provided by DNS
+
+1. DNS: domain name system
+   1. A directory service that translates hostnames to IP address
+   2. A distributed database implemented in a hierarchy of DNS servers
+   3. An application-layer protocol(runs over UDP and use port 53) that allows hosts to query the distributed database
+2. When a browser running on some user's host, requests the URL
+   1. User machine runs the client side of the DNS application
+   2. browser extracts the hostname, from the URL and passes the hostname to the client side of the DNS application
+   3. DNS client sends a query containing the hostname to a DNS server
+   4. DNS client eventually receives a reply, which includes the IP address for the hostname
+   5. Browser receives the IP address from DNS, it can initiate a TCP connection to the HTTP server process located at port 80 at the IP address
+3. The desired IP address is often cached in a nearby DNS server, which helps to reduce DNS network traffic as well as the average DNS delay
+4. DNS provides a few other important services
+   1. Host aliasing
+   2. Mail server aliasing
+   3. Load distribution
+5. see more in RFC1034 and RFC1035
+
+### 2.4.2 Overview of How DNS Works
+
+![image-20220307184132274](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/cn-dns-servers.png)
+
+![image-20220307185602672](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/cn-interaction-of-dns-server.png)
+
+![image-20220307185843964](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/cn-recursive-queries-in-dns.png)
+
+还是看图把
+
+### 2.4.3 DNS Records and Messages
+
 
 
 # Chapter 3 Transport Layer
