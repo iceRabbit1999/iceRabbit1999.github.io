@@ -48,6 +48,7 @@
 32. abbreviation：缩写
 32. alluded：暗示
 32. alphanumeric：字母数字
+32. altruistically：利他的
 
 # B
 
@@ -496,6 +497,7 @@
 67. institutional：体制
 67. intermediate：中间的
 67. impractical：不切实际的
+67. incentive：激励
 
 
 
@@ -519,6 +521,8 @@
 9. leverages  ：杠杆作用，借助
 9. lofty：崇高
 9. linefeed：换行
+9. lingo：行话
+9. luminance：亮度
 
 
 
@@ -543,6 +547,7 @@
 10. malicious：恶意的
 10. millennium：千年
 10. mnemonic：助记符
+10. manifest：显现，表明
 
 # N
 
@@ -577,6 +582,7 @@
 9. obligatory：强制性的
 9. onslaught：猛攻，发端
 9. on the behalf of：代表
+9. off-the-shelf：现成的
 
 # P
 
@@ -637,6 +643,7 @@
 1. proposition：主张
 1. peripheral：外围设备，肤浅的
 1. partitions：分区
+1. playout：播出
 
 # Q
 
@@ -675,6 +682,8 @@
 20. reservation：预定
 20. realm：领域
 20. reconcile：调和
+20. rug：小地毯
+20. reciprocates：回报
 
 # S
 
@@ -728,6 +737,7 @@
 43. serially：串行
 43. stale：陈旧
 43. scarce：稀缺
+43. salient：突出
 
 # T
 
@@ -751,6 +761,8 @@
 7. throttles：节流阀，风门，掐死
 7. transcript：成绩单，副本
 7. tacitly：心照不宣
+7. tuple：元组
+7. tit-for-tat：以牙还牙
 
 # U
 
@@ -792,3 +804,4 @@
 1. wholesale:批发
 1. whet：磨
 1. wreak：恶作剧
+1. whopping：惊人的

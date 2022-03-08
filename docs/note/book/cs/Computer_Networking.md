@@ -312,6 +312,37 @@ Internet identifier:
 
 ### 2.4.3 DNS Records and Messages
 
+(Name,Value,Type,TTL)
+
+DNS报文，依然不是目前想要关注和了解的，跳过
+
+## 2.5 Peer-to-Peer File Distribution
+
+1. In P2P file distribution, each peer can redistribute any portion of the file it has received to any other peers, thereby assisting the server in the distribution process
+2. ![image-20220308145016311](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/cn-distribution-time-for-p2p-and-cs.png)
+3. BitTorrent的简单机制介绍，简单阅读了一下，作了解。竞争的激励机制还是挺有意思的
+
+## 2.6 Video Streaming and Content Distribution Networks
+
+We will see they are implemented using application-level protocols and servers that function in some ways like a cache
+
+### 2.6.1 Internet Video
+
+1. A video is a sequence of images, typically being displayed at a constant rate
+2. In order to provide continuous playout, the network must provide an average throughput to the streaming application that is at least as large as the bit rate of the compressed video
+
+### 2.6.2 HTTP Streaming and DASH
+
+1. 客户端定时抓取从HTTP响应中返回的视频帧(在客户端的缓存中)，在ua上面播放
+2. DASH: Dynamic Adaptive Streaming over HTTP
+   1. The video is encoded into several different versions, with each version having a different bit rate
+   2. The client dynamically requests chunks of video segments of a few seconds in length 
+3. DASH allows the client to freely switch among quality levels
+
+### 2.6.3 Content Distribution Networks
+
+
+
 
 
 # Chapter 3 Transport Layer
