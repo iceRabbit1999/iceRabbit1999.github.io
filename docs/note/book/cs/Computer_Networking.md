@@ -312,6 +312,18 @@ Internet identifier:
 
 ### 2.4.3 DNS Records and Messages
 
+(Name,Value,Type,TTL)
+
+DNS报文，依然不是目前想要关注和了解的，跳过
+
+## 2.5 Peer-to-Peer File Distribution
+
+1. In P2P file distribution, each peer can redistribute any portion of the file it has received to any other peers, thereby assisting the server in the distribution process
+2. ![image-20220308145016311](https://gitee.com/iceRabbit1999/forimage/raw/master/blog/cn-distribution-time-for-p2p-and-cs.png)
+3. BitTorrent的简单机制介绍，简单阅读了一下，作了解。竞争的激励机制还是挺有意思的
+
+## 2.6 Video Streaming and Content Distribution Networks
+
 
 
 # Chapter 3 Transport Layer
