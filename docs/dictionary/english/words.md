@@ -390,6 +390,7 @@
 34. emphasize：强调
 34. encyclopedic：百科全书
 34. era：时代
+34. external ：外部的
 
 # F
 
@@ -548,6 +549,7 @@
 10. millennium：千年
 10. mnemonic：助记符
 10. manifest：显现，表明
+10. metaphor：隐喻
 
 # N
 
