@@ -341,11 +341,18 @@ We will see they are implemented using application-level protocols and servers t
 
 ### 2.6.3 Content Distribution Networks
 
+1. CDN: A CDN manages servers in multiple geographically distributed locations, stores copies of the videos in its servers, and attempts to direct each user request to a CDN location that will provide the best user experience
+2. CDN typically adopt one of two different server placement philisophies
+   1. Enter Deep: To enter deep into the access networks of Internet Service Providers, by deploying server clusters in access ISPs all over the world
+   2. Bring Home: To bring the ISPs home by building large clusters at a smaller number of sites, typically place their clusters in Internet Exchange Points
 
+### 2.6.4 Case studying
 
-
+## 2.7 Socket Programming: Creating Network Applications
 
 # Chapter 3 Transport Layer
+
+
 
 # Chapter 4 The Network Layer: Data Plane
 

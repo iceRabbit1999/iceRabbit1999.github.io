@@ -49,6 +49,7 @@
 32. alluded：暗示
 32. alphanumeric：字母数字
 32. altruistically：利他的
+32. authoritative：权威性
 
 # B
 
@@ -218,6 +219,8 @@
 63. certificates：证书
 
 63. canonical：典范
+
+63. continents：大陆
 
     
 
@@ -550,6 +553,7 @@
 10. mnemonic：助记符
 10. manifest：显现，表明
 10. metaphor：隐喻
+10. massive：大量的
 
 # N
 
@@ -646,6 +650,7 @@
 1. peripheral：外围设备，肤浅的
 1. partitions：分区
 1. playout：播出
+1. pioneered：开创先河
 
 # Q
 
@@ -686,6 +691,7 @@
 20. reconcile：调和
 20. rug：小地毯
 20. reciprocates：回报
+20. replicates：复制
 
 # S
 
