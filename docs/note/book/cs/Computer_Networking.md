@@ -352,6 +352,16 @@ We will see they are implemented using application-level protocols and servers t
 
 # Chapter 3 Transport Layer
 
+extending the network layer's delivery service between two end systems to a delivery service between two application-layer processes running on the end systems
+
+## 3.1 Introduction and Transport-Layer Services
+
+1. A transport-layer protocol provides for *logical communication* between application processes running on different hosts
+   1. logical communication: 相对于 physical communication来说，即不考虑物理设施上的细节
+2. transport-layer protocol implemented in the end systems but not in network routers
+
+## 3.2 Relationship Between Transport and Network Layers
+
 
 
 # Chapter 4 The Network Layer: Data Plane

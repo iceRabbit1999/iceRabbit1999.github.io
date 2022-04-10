@@ -222,6 +222,10 @@
 
 63. continents：大陆
 
+63. confront：面对
+
+63. congestion：拥塞
+
     
 
     
@@ -394,6 +398,7 @@
 34. encyclopedic：百科全书
 34. era：时代
 34. external ：外部的
+34. embodied：体现
 
 # F
 
@@ -651,6 +656,7 @@
 1. partitions：分区
 1. playout：播出
 1. pioneered：开创先河
+1. pedagogic：教育学
 
 # Q
 
