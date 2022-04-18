@@ -360,7 +360,41 @@ extending the network layer's delivery service between two end systems to a deli
    1. logical communication: 相对于 physical communication来说，即不考虑物理设施上的细节
 2. transport-layer protocol implemented in the end systems but not in network routers
 
-## 3.2 Relationship Between Transport and Network Layers
+### 3.1.1 Relationship Between Transport and Network Layers
+
+举例讲transport layer和network layer的区别：
+
+1. 传输层提供logical-communication between processes running on different hosts
+2. network layer提供logic-communication between hsots
+
+### 3.1.2 Overview of the Transport Layer in the Internet
+
+概括讲TCP和UDP的基础和接下来的讲解思路
+
+## 3.2 Multiplexing and Demultiplexing
+
+这里对multiplexing和demultiplexing的定义有点不好理解：
+
+extending the host-to-host delivery service provided by the network layer to a process-to-process delivery service for applications running on the hosts
+
+从source发出去的包，在经过socket的时候先被封装了不同的字段，再被交给network layer，此为multiplexing；demultiplexing则反过来，在destination接收的包，拆封字段以后送到正确的socket
+
+TCP和UDP的multiplexing和demultiplexing的区别
+
+## 3.3 Connectionless Transport: UDP
+
+Reasons for UDP
+
+1. Finer application-level control over what data is sent, and when
+2. No connection establishment
+3. No connection state
+4. Small packet header overhead
+
+### 3.3.1 UDP Segment Structure
+
+UDP包的结构
+
+### 3.3.2 UDP Checksum
 
 
 

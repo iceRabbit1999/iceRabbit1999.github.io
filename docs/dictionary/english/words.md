@@ -399,6 +399,7 @@
 34. era：时代
 34. external ：外部的
 34. embodied：体现
+34. excessive：过多的
 
 # F
 
@@ -422,6 +423,7 @@
 3. glue：胶合剂
 4. grapple:扭打
 5. germane：密切相关
+5. glimpse：一瞥
 
 # H
 
@@ -507,6 +509,8 @@
 67. intermediate：中间的
 67. impractical：不切实际的
 67. incentive：激励
+67. intruders：入侵者
+67. intact：完好无损的
 
 
 
@@ -575,6 +579,7 @@
 8. negotiation：谈判
 8. neglect：忽视
 8. nomadic：游牧的
+8. nontrivial：不平凡
 
 # O
 
@@ -594,6 +599,7 @@
 9. onslaught：猛攻，发端
 9. on the behalf of：代表
 9. off-the-shelf：现成的
+9. occupy：占据
 
 # P
 
@@ -657,6 +663,7 @@
 1. playout：播出
 1. pioneered：开创先河
 1. pedagogic：教育学
+1. preliminaries：预赛
 
 # Q
 
@@ -752,6 +759,9 @@
 43. stale：陈旧
 43. scarce：稀缺
 43. salient：突出
+43. saga：传奇
+43. swamping：淹没
+43. strive：努力
 
 # T
 
@@ -812,6 +822,8 @@
 8. warehouse：仓库
 8. vehemently：强烈的
 8. vague：模糊的
+8. vice versa：反之亦然
+8. vacuous：空虚的
 
 # W
 
