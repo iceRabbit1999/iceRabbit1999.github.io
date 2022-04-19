@@ -65,6 +65,7 @@
 4. bona fide：真诚的
 4. backlog：积压的
 4. botnet：僵尸网络
+4. bidirectional：双向
 
 # C
 
@@ -415,6 +416,7 @@
 5. forefront：最前沿
 5. fluctuate：变幻莫测
 5. frills：装饰
+5. flawless：完美无瑕
 
 # G
 
@@ -664,6 +666,7 @@
 1. pioneered：开创先河
 1. pedagogic：教育学
 1. preliminaries：预赛
+1. preliminary：初步的
 
 # Q
 
@@ -805,6 +808,7 @@
 9. unwieldy：笨重
 9. utility：效用
 9. ubiquity：无处不在
+9. unidirectional：单向
 
 # V
 

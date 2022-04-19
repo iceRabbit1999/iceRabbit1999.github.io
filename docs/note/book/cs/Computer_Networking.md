@@ -396,6 +396,40 @@ UDP包的结构
 
 ### 3.3.2 UDP Checksum
 
+checksum is used to determine whether bits within the UDP segment have been altered
+
+checksum的计算
+
+在发送端source port + destination port + length 三个16位字段相加后取反码 –> checksum
+
+在接受端：将4个16位字段都相加，如果没有错误发生应该得到结果`1111111111111111`
+
+why checksum?
+
+讲到一个end-end principle in system design
+
+functions placed at the lower levels may be redundant or of little value when compared to the cost of providing them at the higher level
+
+## 3.4 Principles of Reliable Data Transfer
+
+想一步步讲Reliable Data Transfer Protocol建立过程，图不太好看懂，有点受不了
+
+### 3.4.1 Building a Reliable Data Transfer Protocol
+
+## 3.4.2 Pipelined Reliable Data Transfer Protocol
+
+### 3.4.3 Go-Back-N(GBN)
+
+## 3.5 Connection-Oriented Transport: TCP
+
+the Internet's transport-layer, connection-oriented, reliable transport protocol
+
+### 3.5.1 The TCP Connection
+
+
+
+
+
 
 
 # Chapter 4 The Network Layer: Data Plane
