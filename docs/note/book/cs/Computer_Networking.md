@@ -426,7 +426,13 @@ the Internet's transport-layer, connection-oriented, reliable transport protocol
 
 ### 3.5.1 The TCP Connection
 
+中间网元对所谓的TCP连接是无感知的
 
+point-to-point one sender-one receiver
+
+### 3.5.2 TCP Segment Structure
+
+1. Sequence Numbers and Acknowledgment Numbers
 
 
 
