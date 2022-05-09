@@ -433,6 +433,12 @@ point-to-point one sender-one receiver
 ### 3.5.2 TCP Segment Structure
 
 1. Sequence Numbers and Acknowledgment Numbers
+   1. The acknowledgment number that host A puts in its segment is the sequence number of the next byte host B is excepting from host B
+2. Telnet: A Case Study for Sequence and Acknowledgment Numbers
+
+### 3.5.3 Round-Trip Time Estimation and Timeout
+
+
 
 
 

@@ -337,6 +337,8 @@
 
 41. designates：指定
 
+41. dual：双重的
+
     
 
 # E
@@ -401,6 +403,8 @@
 34. external ：外部的
 34. embodied：体现
 34. excessive：过多的
+34. eavesdropping：窃听
+34. estimation：估计
 
 # F
 
@@ -667,6 +671,7 @@
 1. pedagogic：教育学
 1. preliminaries：预赛
 1. preliminary：初步的
+1. piggybacked：捎带
 
 # Q
 
