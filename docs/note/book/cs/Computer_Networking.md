@@ -438,7 +438,11 @@ point-to-point one sender-one receiver
 
 ### 3.5.3 Round-Trip Time Estimation and Timeout
 
+RTT、SampleRTT、EstimatedRTT、DevRTT的概念和计算
 
+### 3.5.4 Reliable Data Transfer
+
+3 events for tcp sender: data received from application above, timer timeout, ACK receipt 
 
 
 

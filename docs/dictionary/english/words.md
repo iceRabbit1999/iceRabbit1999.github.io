@@ -50,6 +50,7 @@
 32. alphanumeric：字母数字
 32. altruistically：利他的
 32. authoritative：权威性
+32. atypical：非典型
 
 # B
 
@@ -227,6 +228,8 @@
 
 63. congestion：拥塞
 
+63. colon：冒号
+
     
 
     
@@ -338,6 +341,8 @@
 41. designates：指定
 
 41. dual：双重的
+
+41. deviates：偏离
 
     
 
@@ -517,6 +522,7 @@
 67. incentive：激励
 67. intruders：入侵者
 67. intact：完好无损的
+67. integrit：完整性
 
 
 
@@ -672,6 +678,7 @@
 1. preliminaries：预赛
 1. preliminary：初步的
 1. piggybacked：捎带
+1. premature：过早的
 
 # Q
 
@@ -795,6 +802,7 @@
 7. tacitly：心照不宣
 7. tuple：元组
 7. tit-for-tat：以牙还牙
+7. thingy：东西
 
 # U
 
